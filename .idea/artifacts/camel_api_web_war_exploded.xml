@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="camel-api-web:war exploded">
+    <output-path>$PROJECT_DIR$/target/api_web</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="camel-api-web/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="camel-api-web" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
