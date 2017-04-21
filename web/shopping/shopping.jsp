@@ -20,19 +20,19 @@
 
     <!--底部固定导航 开始-->
     <div class="weui-tabbar">
-        <a href="/" class="weui-tabbar__item ">
+        <a href="${pageContext.request.contextPath}/" class="weui-tabbar__item ">
             <div class="weui-tabbar__icon"> <i class="iconfont icon-shouye"></i> </div>
             <p class="weui-tabbar__label">首 页</p>
         </a>
-        <a href="/shopping/shopping.jsp" class="weui-tabbar__item weui-bar__item--on">
+        <a href="${pageContext.request.contextPath}/shopping/shopping.jsp" class="weui-tabbar__item weui-bar__item--on">
             <div class="weui-tabbar__icon"> <i class="iconfont icon-gouwuche"></i> </div>
             <p class="weui-tabbar__label">购物车</p>
         </a>
-        <a href="/order/order_list.jsp" class="weui-tabbar__item ">
+        <a href="${pageContext.request.contextPath}/order/order_list.jsp" class="weui-tabbar__item ">
             <div class="weui-tabbar__icon"> <i class="iconfont icon-dingdan"></i> </div>
             <p class="weui-tabbar__label">订 单</p>
         </a>
-        <a href="/ucenter/ucenter.jsp" class="weui-tabbar__item ">
+        <a href="${pageContext.request.contextPath}/ucenter/ucenter.jsp" class="weui-tabbar__item ">
             <div class="weui-tabbar__icon"> <i class="iconfont icon-wode"></i> </div>
             <p class="weui-tabbar__label">个 人</p>
         </a>
