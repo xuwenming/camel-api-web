@@ -2,11 +2,11 @@
 /*******重置WEUI 部分样式*******/
 body{font-family: -apple-system-font,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;}
 .weui-btn_primary {background-color: #12b7f5;}
-.weui-btn_primary:not(.weui-btn_disabled):active{color:hsla(0,0%,100%,.4);background-color:#0993c7}
+.weui-btn_primary:not(.weui-btn_disabled):active{color:hsla(0,0%,100%,.4);background-color:#05c0ab}
 .weui-cells {margin-top: 10px;}
 .weui_toptips {z-index: 99999;}
-.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {color: #0993c7;}
-.weui-tabbar__item.weui-bar__item--on i{color: #0993c7;}
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {color: #05c0ab;}
+.weui-tabbar__item.weui-bar__item--on i{color: #05c0ab;}
 .weui-grid__icon{width:50px;height:50px;margin:0 auto}
 .weui-tabbar{ position:fixed; z-index:2;}
 .weui-article{padding:0px 15px;font-size:16px}
@@ -75,7 +75,7 @@ ul li{ list-style:none;}
 
 
 /*标题栏*/
-.bar{position:fixed;right:0;left:0;z-index:10;height:2.2rem;padding-right:.5rem;padding-left:.5rem;background-color:#0993c7;-webkit-backface-visibility:hidden;backface-visibility:hidden; color:#FFF;}
+.bar{position:fixed;right:0;left:0;z-index:10;height:2.2rem;padding-right:.5rem;padding-left:.5rem;background-color:#05c0ab;-webkit-backface-visibility:hidden;backface-visibility:hidden; color:#FFF;}
 .bar-header-secondary{top:2.2rem}
 .bar-footer{bottom:0}
 .bar-footer-secondary{bottom:2.2rem}
@@ -125,7 +125,7 @@ a{text-decoration:none;color:#000;}
 .mbnone{ margin-bottom:0px !important;}
 .mt10{ margin-top:10px;}
 .whitebg{ background:#FFF;}
-.blue{ color:#0993c7;}
+.blue{ color:#05c0ab;}
 .blue2{ color:#12b7f5;}
 .gray{ color:#999999;}
 .fl{ float:left;}
@@ -142,9 +142,10 @@ a{text-decoration:none;color:#000;}
 
 /******首页********/
 .home_content{-webkit-overflow-scrolling:touch; padding-bottom:55px;}
+.ucenter_content{-webkit-overflow-scrolling:touch; padding-bottom:55px;}
 
 /*****************首 页*********************/
-.index_bar{  background:#0993c7 url(../imagesm/logo.png) 0.75rem  center no-repeat;color:#FFF;}
+.index_bar{  background:#05c0ab url(../imagesm/logo.png) 0.75rem  center no-repeat;color:#FFF;}
 .index_bar a{ color:#FFF;}
 .index_content img{ max-width:100%;}
 .pull-right {float: right;}
@@ -218,7 +219,7 @@ table.erji_gridtable td{border:none}
 /*手机号*/
 .cusuan_info{ text-align:center; margin-bottom:10px; margin-top:10px;}
 .cusuan_info .cesuan_msg_title{font-weight: 400;font-size: 20px;}
-.cesuan_msg_desc{font-size:1.2rem;;color: #0993c7;}
+.cesuan_msg_desc{font-size:1.2rem;;color: #05c0ab;}
 .table1 th span.a3{ color:#FFF;left:51%;}
 .table1 th span.a4{ color:#FFF;left:51%;}
 .ad_box{ margin:0px;}
@@ -363,17 +364,17 @@ table.erji_gridtable td{border:none}
 .search-input .icon{position:absolute;top:50%;left:.3rem;font-size:.9rem;color:#b4b4b4;-webkit-transform:translate3D(0,-50%,0);-ms-transform:translate3D(0,-50%,0);-o-transform:translate3D(0,-50%,0);transform:translate3D(0,-50%,0)}
 .searchbar .search-input input{height:40px;margin:0}
 .search-input label+input{padding-left:30px}
-.search-input input{display:block;width:100%;height:1.4rem;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none;padding:0 .5rem;font-family:inherit;font-size:.7rem;font-weight:400;color:#3d4145;background-color:#fff;border:none;border:2px solid #0993c7;-moz-appearance:none;appearance:none; outline:none;border-radius:0;}
-.button.button-fill{line-height:40px;color:#fff;background:#0993c7;border:none; text-align:center;box-sizing: border-box; display:block;}
+.search-input input{display:block;width:100%;height:1.4rem;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none;padding:0 .5rem;font-family:inherit;font-size:.7rem;font-weight:400;color:#3d4145;background-color:#fff;border:none;border:2px solid #05c0ab;-moz-appearance:none;appearance:none; outline:none;border-radius:0;}
+.button.button-fill{line-height:40px;color:#fff;background:#05c0ab;border:none; text-align:center;box-sizing: border-box; display:block;}
 .hot_cesuan_words a{ color:#494848;}
 /*解梦结果*/
-.jiemeng_head{ text-align:center; background:#e7e7e7; color:#0993c7; height:40px;line-height:40px;}
+.jiemeng_head{ text-align:center; background:#e7e7e7; color:#05c0ab; height:40px;line-height:40px;}
 .jiemeng_head h1{font-size:21px;font-weight:700;margin-bottom:.45em}
-h1.jiemeng_title{ color:#0993c7; border-bottom:#e7e7e7 solid 1px; font-size:21px; padding-bottom:2px;}
+h1.jiemeng_title{ color:#05c0ab; border-bottom:#e7e7e7 solid 1px; font-size:21px; padding-bottom:2px;}
 .jiemeng_jieguo * {max-width: 100%;box-sizing: border-box;word-wrap: break-word;}
 .jiemeng_jieguo{ padding:12px 0px;}
 /*解梦列表*/
-.jiemeng_list .weui-media-box__title a{ color:#0993c7; }
+.jiemeng_list .weui-media-box__title a{ color:#05c0ab; }
 table.peiduitable{border-collapse:collapse; font-size:12px;}
 table.peiduitable td{ padding:0px; text-align:center; padding:0px; margin:0px;border-collapse:collapse; border:none;}
 .jieguo_box{ position:relative; border-bottom:#c7c7c7 solid 1px; border-top:#c7c7c7 solid 1px; background:#FFF; padding:10px; margin-top:10px;}
@@ -384,7 +385,7 @@ table.peiduitable td{ padding:0px; text-align:center; padding:0px; margin:0px;bo
 /*情侣配对*/
 .shengxiao_jieguo{ text-align:center;}
 .shengxiao_jieguo .img{ width:80%; margin:10px auto; vertical-align:middle; margin-bottom:0px;}
-.shengxiao_jieguo .jieshuo{ width:60%; margin:0px auto; text-align:center; font-size:20px; color:#0993c7; margin-bottom:5px;}
+.shengxiao_jieguo .jieshuo{ width:60%; margin:0px auto; text-align:center; font-size:20px; color:#05c0ab; margin-bottom:5px;}
 .shengxiao_jieguo img{ width:70px; height:70px;}
 .shengxiao_jieguo img.xin{width:50px; height:44px; margin-top:13px;}
 .c_jieshuo{ text-align:center;font-size:20px; margin:5px auto;}
@@ -501,7 +502,7 @@ table.peiduitable td{ padding:0px; text-align:center; padding:0px; margin:0px;bo
 .zhiwenjieguo img{ width:100%;}
 .zhiwenbox{ line-height:40px; margin-top:10px;}
 .zhiwenbox a{ height:40px; line-height:40px; display:inline-block; border:#00ccff solid 1px; text-align:center; width:100%;}
-.zhiwenbox a:hover,.zhiwenbox a.on{ background:#0993c7; color:#FFF;border:#0993c7 solid 1px;}
+.zhiwenbox a:hover,.zhiwenbox a.on{ background:#05c0ab; color:#FFF;border:#05c0ab solid 1px;}
 .zhiwenbox span{height:42px; line-height:42px; display:inline-block; text-align:right !important; width:100%;}
 .zhiwenbox .weui-col-40{ margin-bottom:10px;}
 /*****************周易64卦**********************/
@@ -708,7 +709,7 @@ h3.tit { font-size:16px;}
 .talk_time{color:#666;text-align:right;width:240px;display:block}
 .talk_word{line-height:40px;height:40px;width:100%;padding:0 10px;border-top:#d6d6d6 solid 1px}
 .messages{height:30px;line-height:30px;width:80%;text-indent:5px;overflow:hidden;color:#666;background-color:#ccc;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;border:none}
-.talk_send{width:18%;height:30px;line-height:30px;border:0;color:#fff;background:#0993c7}
+.talk_send{width:18%;height:30px;line-height:30px;border:0;color:#fff;background:#05c0ab}
 
 /*上传插件*/
 .preview1{  display: none;  position: fixed;  top: 0;  left: 0;  width: 100%;  height: 100%;  }

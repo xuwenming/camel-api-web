@@ -7,13 +7,11 @@
 </head>
 <body>
     <!--头部导航 开始-->
-    <header class="bar bar-nav">
-        <h1 class="title">我的</h1>
-    </header>
+
     <!--头部导航 结束-->
 
     <!--主体部分 开始-->
-    <div class="content">
+    <div class="ucenter_content">
         <div class="jiben">
             <a class="" href="/ucenter/config/ziliao.html">
                 <div class="tx_box">
