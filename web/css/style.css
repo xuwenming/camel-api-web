@@ -140,6 +140,8 @@ a{text-decoration:none;color:#000;}
 .content{-webkit-overflow-scrolling:touch; padding-bottom:55px; padding-top:2.2rem;}
 /*.content-block{padding:10px;!*margin:.75rem 0*!}*/
 
+/******首页********/
+.home_content{-webkit-overflow-scrolling:touch; padding-bottom:55px;}
 
 /*****************首 页*********************/
 .index_bar{  background:#0993c7 url(../imagesm/logo.png) 0.75rem  center no-repeat;color:#FFF;}

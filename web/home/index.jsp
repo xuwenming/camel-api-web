@@ -7,13 +7,13 @@
 </head>
 <body>
     <!--头部导航 开始-->
-    <header class="bar bar-nav">
+    <%--<header class="bar bar-nav">
         <h1 class="title">首页</h1>
-    </header>
+    </header>--%>
     <!--头部导航 结束-->
 
     <!--主体部分 开始-->
-    <div class="content">
+    <div class="home_content">
         <div class="weui-search-bar" id="searchBar">
             <form class="weui-search-bar__form">
                 <div class="weui-search-bar__box">
