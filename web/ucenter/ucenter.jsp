@@ -19,7 +19,8 @@
                 <div class="tx_box">
 
                     <div class="tx">
-                        <img class="tx" src="/Public/images/default_avatar_128_128.jpg" ></div>
+                        <img class="tx" src="/Public/images/default_avatar_128_128.jpg" >
+                    </div>
                     <ul>
                         王子订单的                        <li>编号：1063</li>
                         <!--<li></li>-->
@@ -32,87 +33,59 @@
 
         </div>
 
-
-        <div class="weui-cells__title">我的财务</div>
         <div class="weui-cells">
             <a class="weui-cell weui-cell_access" href="/recharge/index/tangdou_chongzhi.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-tangdou"  ></i>糖豆</p>
+                    <p><i class="sstfont sst-qianbao"  ></i>钱包</p>
                 </div>
                 <div class="weui-cell__ft">
-                    0个
+                    ￥588888
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-jifen"  ></i>积分</p>
+                    <p><i class="sstfont sst-mobile"  ></i>手机号</p>
                 </div>
-                <div class="weui-cell__ft">0分
+                <div class="weui-cell__ft">13818680753
                 </div>
             </a>
-        </div>
 
-
-        <div class="weui-cells__title">我是买家</div>
-        <div class="weui-cells">
             <a class="weui-cell weui-cell_access" href="/shop/index/cart.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-gouwuche"  ></i>购物车</p>
+                    <p><i class="sstfont sst-shopName"  ></i>门店名称</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/shop/index/my_collect.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-guanzhu"  ></i>我的收藏</p>
+                    <p><i class="sstfont sst-address"  ></i>地址</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/shop/index/order_list.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-yigou"  ></i>开运订单</p>
+                    <p><i class="sstfont sst-contactPeople"  ></i>联系人</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/dashi/index/order_list.html">
                 <div class="weui-cell__bd">
-                    <p> <i class="sstfont sst-dashi"  ></i>大师订单</p>
+                    <p> <i class="sstfont sst-receiveAddress"  ></i>收货地址</p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="/dashi/index/order_list.html">
+                <div class="weui-cell__bd">
+                    <p> <i class="sstfont sst-"  ></i>合同</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
         </div>
-
-
-
-        <div class="weui-cells__title">客服中心</div>
-        <div class="weui-cells">
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-kefu"  ></i>联系客服</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="/dashi/index/dashi_ruzhu.html">
-                <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-dashiruzhu"  ></i>大师入驻</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-bangzhu"  ></i>帮助中心</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-
-        </div>
-
 
     </div>
     <!--主体部分 结束-->
