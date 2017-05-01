@@ -13,7 +13,7 @@
   </head>
   <body>
       <script>
-          window.location.href = 'item/item_list.jsp';
+          window.location.href = 'home/index.jsp';
       </script>
   </body>
 </html>
