@@ -25,3 +25,27 @@
 
 .icon-shouye:before { content: "\e6ee"; }
 
+
+.iconpng {
+  display: inline-block;
+  width: 16px; height: 16px;
+  overflow: visible;
+}
+.sst-contract {  background: url('../image/ucenter/contract.png') no-repeat center center;
+  background-size:100% 100%;}
+.sst-receiveAddress {  background: url('../image/ucenter/receiveAddress.png') no-repeat center center;
+  background-size:100% 100%;}
+.sst-contactPeople {  background: url('../image/ucenter/contactPeople.png') no-repeat center center;
+  background-size:100% 100%;}
+.sst-address {  background: url('../image/ucenter/address.png') no-repeat center center;
+  background-size:100% 100%;}
+.sst-shopName {  background: url('../image/ucenter/shopName.png') no-repeat center center;
+  background-size:100% 100%;}
+
+.sst-mobile {  background: url('../image/ucenter/mobile.png') no-repeat center center;
+  background-size:100% 100%;}
+.sst-qianbao {  background: url('../image/ucenter/qianbao.png') no-repeat center center;
+  background-size:100% 100%;}
+
+
+

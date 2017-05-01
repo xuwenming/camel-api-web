@@ -34,7 +34,7 @@
         <div class="weui-cells">
             <a class="weui-cell weui-cell_access" href="/recharge/index/tangdou_chongzhi.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-qianbao"  ></i>钱包</p>
+                    <p><i class="iconpng sst-qianbao"  ></i>钱包</p>
                 </div>
                 <div class="weui-cell__ft">
                     ￥588888
@@ -42,7 +42,7 @@
             </a>
             <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-mobile"  ></i>手机号</p>
+                    <p><i class="iconpng sst-mobile"  ></i>手机号</p>
                 </div>
                 <div class="weui-cell__ft">13818680753
                 </div>
@@ -50,35 +50,35 @@
 
             <a class="weui-cell weui-cell_access" href="/shop/index/cart.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-shopName"  ></i>门店名称</p>
+                    <p><i class="iconpng sst-shopName"  ></i>门店名称</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/shop/index/my_collect.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-address"  ></i>地址</p>
+                    <p><i class="iconpng sst-address"  ></i>地址</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/shop/index/order_list.html">
                 <div class="weui-cell__bd">
-                    <p><i class="sstfont sst-contactPeople"  ></i>联系人</p>
+                    <p><i class="iconpng sst-contactPeople"  ></i>联系人</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/dashi/index/order_list.html">
                 <div class="weui-cell__bd">
-                    <p> <i class="sstfont sst-receiveAddress"  ></i>收货地址</p>
+                    <p> <i class="iconpng sst-receiveAddress"  ></i>收货地址</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
             </a>
             <a class="weui-cell weui-cell_access" href="/dashi/index/order_list.html">
                 <div class="weui-cell__bd">
-                    <p> <i class="sstfont sst-"  ></i>合同</p>
+                    <p> <i class="iconpng sst-contract"  ></i>合同</p>
                 </div>
                 <div class="weui-cell__ft">
                 </div>
