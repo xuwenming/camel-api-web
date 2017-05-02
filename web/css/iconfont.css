@@ -28,8 +28,10 @@
 
 .iconpng {
   display: inline-block;
-  width: 16px; height: 16px;
+  width: 22px; height: 22px;
   overflow: visible;
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 .sst-contract {  background: url('../image/ucenter/contract.png') no-repeat center center;
   background-size:100% 100%;}
@@ -44,7 +46,7 @@
 
 .sst-mobile {  background: url('../image/ucenter/mobile.png') no-repeat center center;
   background-size:100% 100%;}
-.sst-qianbao {  background: url('../image/ucenter/qianbao.png') no-repeat center center;
+.sst-qianbao { background: url('../image/ucenter/qianbao.png') no-repeat center center;
   background-size:100% 100%;}
 
 
