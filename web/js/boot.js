@@ -59,7 +59,9 @@
      * 隐藏主题
      */
     function hideContent () {
+        //$('body').show();
         $('body').prepend('<div class="weui-loadmore"> <i class="weui-loading"></i> <span class="weui-loadmore__tips">正在加载</span> </div>').show();
+        $('div[class$="content"]').hide();
     }
     $(function () {
         hideContent();
