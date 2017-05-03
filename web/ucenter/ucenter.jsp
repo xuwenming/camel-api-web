@@ -11,6 +11,11 @@
     <!--头部导航 结束-->
 
     <!--主体部分 开始-->
+    <div class="weui-loadmore">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+
     <div class="ucenter_content">
         <div class="jiben">
             <a class="" href="/ucenter/config/ziliao.html">

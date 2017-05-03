@@ -45,7 +45,7 @@
             <div class="weui-tabbar__icon"> <i class="iconfont icon-dingdan"></i> </div>
             <p class="weui-tabbar__label">订 单</p>
         </a>
-        <a href="${pageContext.request.contextPath}/ucenter/ucenter.jsp" class="weui-tabbar__item ">
+        <a href="../ucenter/index.html" class="weui-tabbar__item ">
             <div class="weui-tabbar__icon"> <i class="iconfont icon-wode"></i> </div>
             <p class="weui-tabbar__label">个 人</p>
         </a>
