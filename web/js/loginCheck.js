@@ -10,7 +10,9 @@ $(function(){
             }
         } else {
             $.cookie('tokenId', tokenId, {path:'/'});
+            $.showContent();
         }
-
+    } else {
+        $.showContent();
     }
 });
