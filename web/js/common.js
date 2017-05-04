@@ -83,6 +83,19 @@ function delQueStr(url, ref) {
     }
 }
 
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        var strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
 var Util = {};
 // 密码校验，6-20位字母,数字组合
 Util.checkPassword = function(v){
@@ -242,4 +255,24 @@ function wxPayCall(params, success, fail) {
     }, function(){
         $.loading.load({type:2, msg:'支付中...'});
     });
+}
+
+function isWeiXin() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getDevice() {
+    var u = navigator.userAgent;
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+        return 'Android';
+    } else if (u.indexOf('iPhone') > -1) {
+        return 'iOS';
+    } else {
+        return 'none';
+    }
 }

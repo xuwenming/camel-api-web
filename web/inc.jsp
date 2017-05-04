@@ -10,15 +10,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/weui.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-weui.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/iconfont.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/js/load/load.css">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" charset="utf-8"></script>
 <script type="text/javascript">
 	var base = '${pageContext.request.contextPath}/';
-	var tokenId = '${tokenId}';
-	var server_url = 'http://127.0.0.1:8080';
+	var server_url = 'http://www.mobiang.com/camel/';
 </script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-weui.js" charset="utf-8"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/swiper.js" charset="utf-8"></script>
@@ -30,14 +28,15 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/load/load.js" charset="utf-8"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fastclick.js" charset="utf-8"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.raty.js" charset="utf-8"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/loginCheck.js" charset="utf-8"></script>
 <script type="text/javascript">
 	window.addEventListener('load', function() {
 		FastClick.attach(document.body);
 	}, false);
-	$(function(){
-		if(tokenId) {
-			//$.cookie('tokenId', null, {path:'/'});
-			$.cookie('tokenId', tokenId, {path:'/'});
-		}
-	});
+//	$(function(){
+//		if(tokenId) {
+//			//$.cookie('tokenId', null, {path:'/'});
+//			$.cookie('tokenId', tokenId, {path:'/'});
+//		}
+//	});
 </script>

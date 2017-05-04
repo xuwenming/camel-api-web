@@ -36,6 +36,7 @@
         'js/load/load.js',
         'js/fastclick.js',
         'js/jquery.raty.js',
+        'js/loginCheck.js',
         'css/swiper.min.css',
         'css/weui.min.css',
         'css/jquery-weui.css',

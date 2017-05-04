@@ -4,7 +4,7 @@
 		load: function(options){
 			numCount ++ ;
 			if($("div[id^=loading_]").length > 0 || $("div[id^=loading_]", window.parent.document).length > 0) return;
-			var defaults = {id:'',msg:'正在加载中', imageUrl:base + 'js/load/load.gif', type:1};
+			var defaults = {id:'',msg:'正在加载中', imageUrl:'load.gif', type:1};
 			var opts = $.extend(defaults, options);
 
 			var loadHtml;
