@@ -1,3 +1,5 @@
+var server_url = 'http://www.mobiang.com/camel/';
+
 function ajaxPost(url, parameter, success,beforeSend,time) {
     if(!url) return;
     $.ajax({
@@ -35,7 +37,7 @@ function replace(url) {
 function getUrl(url) {
     var index = url.indexOf("api");
     if(index != 0) url = url.substring(index);
-    var tokenId = $.cookie('tokenId') || '1D96DACB84F21890ED9F4928FA8B352B', _url = base + url;
+    var tokenId = $.cookie('tokenId'), _url = server_url + url;
     if(tokenId)
         _url += (url.indexOf("?") == -1 ? "?" : "&") + "tokenId=" + tokenId;
     return _url;

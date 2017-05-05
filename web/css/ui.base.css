@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/**
+ * reset 
+ * base
+ */
+
+html,body {
+	-webkit-touch-callout:none;
+	-webkit-text-size-adjust:none;
+	-webkit-tap-highlight-color:transparent;
+	-webkit-user-select:none;
+	-webkit-overflow-scrolling: touch
+}
+
+body{
+	margin:0;
+	border:0;
+	padding:0;
+	font-size: 14px;
+	color: #777;
+	/*background-color: #f9f9f9;*/
+	background-color: #efefef;
+	font-family:"microsoft yahei",sans-serif;
+	padding-bottom: 60px;
+}
+
+h1,h2,h3,h4,h5,h6,p,a,ol,ul,li{
+	margin: 0;
+	padding: 0;
+}
+
+h1,h2,h3,h4{
+	font-weight: 400;
+}
+
+a,button,em,del,strong,var,label,cite,small,time,mark,code,textarea{
+	display:block;
+}
+
+a{
+	font-family: "microsoft yahei";
+	text-decoration: none;
+	cursor: pointer;
+	color: #777;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+a:active{
+	text-decoration: none;
+}
+
+b{
+	font-weight: normal;
+}
+
+ul,li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a img {
+	display: block;
+	border: 0
+}
+
+img{
+	display: block;
+	width: 100%;
+}
+
+a,button:focus {
+	outline: 0;
+}
+
+input,textarea{
+	-webkit-tap-highlight-color:transparent;
+	font-family: "microsoft yahei";
+	-webkit-appearance: none;
+	font-size: 16px;
+}
+
+input,textarea:focus{
+	outline: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+
+
+
+

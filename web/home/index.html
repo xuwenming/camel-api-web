@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <meta charset="UTF-8">
     <script type="text/javascript" src="../js/header.js" charset="utf-8"></script>
     <title>首页</title>
 </head>
@@ -8,20 +9,130 @@
 
 <!--主体部分 开始-->
 <div class="home_content">
-    <div class="weui-search-bar" id="searchBar">
-        <form class="weui-search-bar__form">
-            <div class="weui-search-bar__box">
-                <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
-                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
-            </div>
-            <label class="weui-search-bar__label" id="searchText">
-                <i class="weui-icon-search"></i>
-                <span>搜索</span>
-            </label>
-        </form>
-        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    <!--header-->
+    <div class="ui-index-header ng-scope">
+        <div class="ui-index-header-con">
+            <input type="text" placeholder="搜索">
+            <a></a>
+        </div>
     </div>
+
+    <!--分类-->
+    <div class="ui-index-cate ui-row-flex">
+        <div class="ui-col">
+            <img src="../image/cate-1.png">
+            <p>桶装水</p>
+        </div>
+        <div class="ui-col">
+            <img src="../image/cate-2.png">
+            <p>支装水</p>
+        </div>
+        <div class="ui-col">
+            <img src="../image/cate-3.png">
+            <p>饮水装备</p>
+        </div>
+        <div class="ui-col">
+            <img src="../image/cate-4.png">
+            <p>饮料</p>
+        </div>
+    </div>
+
+    <!--首页列表-->
+    <ul class="ui-index-list ng-scope">
+
+        <!--循环/s-->
+        <li class="list-line ui-row-flex">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../image/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-btn">
+                <a class="carts ui-img-cover"></a>
+                <a href="http://www.xledan.cn/wx/app/view/details.html" class="btn ui-row-flex">立即抢购</a>
+            </div>
+        </li>
+        <!--循环/e-->
+
+        <li class="list-line ui-row-flex">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../image/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-btn">
+                <a class="carts ui-img-cover"></a>
+                <a href="http://www.xledan.cn/wx/app/view/details.html" class="btn ui-row-flex">立即抢购</a>
+            </div>
+        </li>
+
+        <li class="list-line ui-row-flex">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../image/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-btn">
+                <a class="carts ui-img-cover"></a>
+                <a href="http://www.xledan.cn/wx/app/view/details.html" class="btn ui-row-flex">立即抢购</a>
+            </div>
+        </li>
+
+        <li class="list-line ui-row-flex">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../image/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-btn">
+                <a class="carts ui-img-cover"></a>
+                <a href="http://www.xledan.cn/wx/app/view/details.html" class="btn ui-row-flex">立即抢购</a>
+            </div>
+        </li>
+
+        <li class="list-line ui-row-flex">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../image/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-btn">
+                <a class="carts ui-img-cover"></a>
+                <a href="http://www.xledan.cn/wx/app/view/details.html" class="btn ui-row-flex">立即抢购</a>
+            </div>
+        </li>
+
+    </ul>
 </div>
 <!--主体部分 结束-->
 

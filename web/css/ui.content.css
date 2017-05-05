@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+/**
+ * 首页
+ */
+
+.ui-index-header{
+	position: fixed;
+	height: 50px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #05C0AB;
+	padding: 8px 12px;
+	z-index: 999;
+}
+
+.ui-index-header-con{
+	position: relative;
+	height: 34px;
+	background-color: #fff;
+	border-radius: 17px;
+}
+
+.ui-index-header-con input{
+	height: 34px;
+	padding: 9px 24px;
+	width: 100%;
+	border: 0;
+	border-radius: 17px;
+	background-color: transparent;
+	font-size: 14px;
+}
+
+.ui-index-header-con a{
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 34px;
+	right: 0;
+	top: 0;
+	background-size: 40%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url(../image/search.png);
+}
+
+.ui-index-cate{
+	padding: 15px 12px;
+	margin-top: 50px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+.ui-index-cate .ui-col img{
+	display: block;
+	width: 65%;
+	margin: auto;
+}
+
+.ui-index-cate .ui-col p{
+	padding-top: 5px;
+	text-align: center;
+	color: #333;
+	font-size: 15px;
+}
+
+/**
+ * 首页列表
+ */
+
+.ui-index-list{
+	background-color: #fff;
+}
+
+.ui-index-list li{
+	position: relative;
+	padding: 20px 15px;
+}
+
+.ui-index-list li .ui-icon{
+	max-width: 100px;
+	min-width: 100px;
+}
+
+.ui-index-list li .ui-text{
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 100px;
+}
+
+.ui-index-list li .ui-col i{
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+
+.ui-index-list li .ui-text h3{
+	font-size: 15px;
+	color: #333;
+	font-weight: 600;
+	min-height: 18px;
+	line-height: 18px;
+	max-height: 36px;
+	display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.ui-index-list li .ui-text h4{
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 14px;
+	color: #999;
+}
+
+.ui-index-list li .ui-text .bot{
+	position: absolute;
+	bottom: 0;
+}
+
+.ui-index-list li .ui-text .bot del{
+	color: #999;
+	font-size: 12px;
+}
+
+.ui-index-list li .ui-text .bot p{
+	color: #999;
+	font-size: 12px;
+}
+
+.ui-index-list li .ui-text .bot p span{
+	color: #05C0AB;
+	font-size: 16px;
+}
+
+.ui-index-list li .ui-btn{
+	max-width: 90px;
+	min-width: 90px;
+	height: 90px;
+}
+
+.ui-index-list li .ui-btn .carts{
+	float: right;
+	width: 40px;
+	height: 40px;
+	background-image: url(../image/add_carts.png);
+	background-size: 70%;
+}
+
+.ui-index-list li .ui-btn .carts:active{
+	background-color: #eee;
+}
+
+.ui-index-list li .ui-btn .btn{
+	float: right;
+	width: 90px;
+	height: 34px;
+	border-radius: 3px;
+	background-color: #fe9900;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	color: #fff;
+	margin-top: 20px;
+}
+
+.ui-index-list li .ui-btn .btn:active{
+	background-color: rgba(254,153,0,0.6);
+}

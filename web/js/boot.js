@@ -43,7 +43,10 @@
         'css/swiper.min.css',
         'css/style.css',
         'css/iconfont.css',
-        'js/load/load.css']);
+        'js/load/load.css',
+        'css/ui.base.css',
+        'css/ui.common.css',
+        'css/ui.content.css']);
 
     window.addEventListener('load', function () {
         FastClick.attach(document.body);
