@@ -1,6 +1,6 @@
 $(function(){
     var tokenId = $.cookie('tokenId');
-
+    // TODO 验证tokenId是否有效
     if(!tokenId) {
         tokenId = GetRequest()['tokenId'];
         var isBindPhone = GetRequest()['isBindPhone'];

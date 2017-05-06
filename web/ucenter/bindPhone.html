@@ -8,37 +8,33 @@
 <body style="display: none;">
 
 <!--头部导航 开始-->
-<header class="bar bar-nav">
-    <h1 class="title">绑定手机</h1>
-</header>
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">绑定手机</div>
+    <div class="ui-col header-icon"></div>
+</div>
 <!--头部导航 结束-->
 
 <!--主体部分 开始-->
-<div class="content">
-    <div class="weui-cells">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="tel" placeholder="请输入手机号" id="phone">
-            </div>
-            <div class="weui-cell__ft">
-                <button class="weui-vcode-btn" id="vcode-btn">获取验证码</button>
-            </div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__bd weui-cell_primary">
-                <input class="weui-input" type="tel" placeholder="请输入验证码" id="vcode">
-            </div>
-        </div>
+<div class="form line">
+    <div class="form-group list-line">
+        <input type="tel" class="form-control" placeholder="请输入手机号"  id="phone"/>
+        <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center" id="vcode-btn">获取验证码</a>
     </div>
-    <div class="weui-btn-area">
-        <a href="javascript:void(0);" class="weui-btn weui-btn_primary" id="bindPhone-btn">确定</a>
+
+    <div class="form-group list-line">
+        <input type="tel" class="form-control" placeholder="请输入验证码"  id="vcode"/>
     </div>
 </div>
+
+<a class="btn-reg ui-row-flex ui-flex-align-center ui-flex-pack-center ripple" id="bindPhone-btn">确定</a>
 <!--主体部分 结束-->
 
+<div class="include header" data-src="../module/header.html"></div>
 <script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
 <!--我的页面业务代码-->
-<script type="text/javascript" src="../js/ucenter/bindPhone.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $.include(['css/ui.register.css', 'js/ucenter/bindPhone.js']);
+</script>
 </body>
 </html>

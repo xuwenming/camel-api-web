@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/**
+ * carts style 
+ */
+body{
+	padding-top: 50px;
+}
+
+.ui-carts-list{
+	background-color: #fff;
+}
+
+.ui-carts-list li{
+	position: relative;
+	padding: 20px 10px;
+}
+
+.ui-carts-list li .ui-icon{
+	max-width: 90px;
+	min-width: 90px;
+}
+
+.ui-carts-list li .ui-select{
+	max-width: 30px;
+	min-width: 30px;
+}
+
+.ui-carts-list li .ui-select span{
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-image: url(../images/un_select.png);
+}
+
+.ui-carts-list li .ui-select span.active{
+	background-image: url(../images/selected.png);
+}
+
+.ui-carts-list li .ui-text{
+	position: relative;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 90px;
+}
+
+.ui-carts-list li .ui-col i{
+	display: block;
+	width: 90px;
+	height: 90px;
+}
+
+.ui-carts-list li .ui-text h3{
+	font-size: 15px;
+	color: #333;
+	font-weight: 600;
+	min-height: 18px;
+	line-height: 18px;
+	max-height: 36px;
+	display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.ui-carts-list li .ui-text h4{
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 14px;
+	color: #999;
+}
+
+.ui-carts-list li .ui-text .bot{
+	position: absolute;
+	bottom: 0;
+}
+
+.ui-carts-list li .ui-text .bot del{
+	color: #999;
+	font-size: 12px;
+}
+
+.ui-carts-list li .ui-text .bot p{
+	color: #999;
+	font-size: 12px;
+}
+
+.ui-carts-list li .ui-text .bot p span{
+	color: #05C0AB;
+}
+
+.ui-carts-list li .ui-btn{
+	max-width: 90px;
+	min-width: 90px;
+	height: 90px;
+}
+
+.ui-carts-list li .ui-btn .del{
+	float: right;
+	width: 40px;
+	height: 40px;
+	background-image: url(../images/del.png);
+	background-size: 40%;
+}
+
+.ui-carts-list li .ui-btn .del:active{
+	background-color: #eee;
+}
+
+.ui-carts-list li .ui-btn .num{
+	float: right;
+	width: 90px;
+	height: 30px;
+	border-radius: 3px;
+	margin-top: 20px;
+	border: 1px solid #ddd;
+}
+
+.ui-carts-list li .ui-btn .num .ui-col{
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	max-width: 33.33%;
+	min-width: 33.33%;
+}
+
+.ui-carts-list li .ui-btn .num .ui-col.br{
+	border-right: 1px solid #ddd;
+}
+
+.ui-carts-list li .ui-btn .num .ui-col:active{
+	background-color: #ccc;
+}

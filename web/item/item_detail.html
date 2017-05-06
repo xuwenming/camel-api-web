@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>商品详情</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">商品详情</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="details-header">
+    <div class="swiper-container details-banner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/test/test2.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/test/test2.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/test/test2.jpg" />
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <h3>可口可乐 汽水</h3>
+    <h4>330ml*24灌/箱</h4>
+    <p>合同价<span>￥1.00</span><del>￥99.99</del></p>
+</div>
+
+<div class="details-info">
+    <h3>产品参数</h3>
+    <ul class="details-info-list">
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">商品条形码</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">2016年5月25日</div>
+        </li>
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">净含量</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">2011ml</div>
+        </li>
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">包装方式</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">包装</div>
+        </li>
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">品牌</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">可口可乐</div>
+        </li>
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">商品条形码</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">04201414</div>
+        </li>
+        <li class="ui-row-flex">
+            <div class="ui-row-flex ui-col title ui-flex-align-center">产地</div>
+            <div class="ui-row-flex ui-col ui-flex-align-center">中国</div>
+        </li>
+    </ul>
+</div>
+
+<div class="details-bottom ui-row-flex">
+    <div class="ui-row-flex ui-col buy ui-flex-align-center ui-flex-pack-center">
+        <i class="ui-img-cover"></i><span>立即购买</span>
+    </div>
+    <div class="ui-row-flex ui-col add ui-flex-align-center ui-flex-pack-center">
+        <i class="ui-img-cover"></i><span>加入购物车</span>
+    </div>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.details.css', 'js/item/item_detail.js']);
+</script>
+</body>
+</html>

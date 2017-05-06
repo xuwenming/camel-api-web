@@ -4,6 +4,10 @@
  * common style 
  */
 
+.include{
+	display: none;
+}
+
 .f{
 	float: left;
 }

@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/**
+ * 我的
+ */
+.ui-mine-header{
+	padding: 30px 0px;
+	background-color: #05C0AB;
+}
+
+.ui-mine-icon{
+	width: 80px;
+	height: 80px;
+	border: 4px solid #82e0d5;
+	border-radius: 50%;
+	margin: auto;
+}
+
+.ui-mine-icon i{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+
+.ui-mine-header p{
+	padding-top: 5px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.ui-mine-list{
+	position: relative;
+	background-color: #fff;
+	margin-top: 10px;
+}
+
+.ui-mine-list li{
+	position: relative;
+	height: 48px;
+	padding: 0 4px 0px 12px;
+}
+
+.ui-mine-list li:active{
+	background-color: #efefef;
+}
+
+.ui-mine-list li .ui-icon{
+	max-width: 24px;
+	min-width: 24px;
+}
+
+.ui-mine-list li .ui-text{
+	color: #333;
+	padding-left: 10px;
+}
+
+.ui-mine-list li .ui-value{
+	color: #999;
+	padding-right: 5px;
+}
+
+.ui-mine-list li .ui-value p{
+	text-align: right;
+}
+
+.ui-mine-list li .ui-value p.pd{
+	padding-top: 3px;
+}
+
+.ui-mine-list li .ui-rg{
+	max-width: 20px;
+	min-width: 20px;
+}
+
+.ui-mine-list li .ui-rg i{
+	width: 16px;
+	height: 16px;
+	display: block;
+	background-image: url(../images/rg.png);
+}

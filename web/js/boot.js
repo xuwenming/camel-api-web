@@ -28,25 +28,22 @@
     /**
      * 加载js csc
      * */
-    $.include(['js/jquery-weui.js',
-        'js/swiper.js',
+    $.include(['js/jquery-weui.min.js',
+        'js/swiper.min.js',
         'js/common.js',
         'js/extJquery.js',
         'js/jquery.lazyload.js',
         'js/load/load.js',
         'js/fastclick.js',
-        'js/jquery.raty.js',
+        'js/jquery.include.js',
         'js/loginCheck.js',
-        'css/swiper.min.css',
+
+        'css/jquery-weui.min.css',
         'css/weui.min.css',
-        'css/jquery-weui.css',
         'css/swiper.min.css',
-        'css/style.css',
-        'css/iconfont.css',
         'js/load/load.css',
         'css/ui.base.css',
-        'css/ui.common.css',
-        'css/ui.content.css']);
+        'css/ui.common.css']);
 
     window.addEventListener('load', function () {
         FastClick.attach(document.body);

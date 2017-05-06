@@ -7,33 +7,143 @@
 </head>
 <body style="display: none;">
 
-<!--头部导航 开始-->
-<header class="bar bar-nav">
-    <h1 class="title">订单列表</h1>
-</header>
-<!--头部导航 结束-->
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">订单列表</div>
+    <div class="ui-col header-icon"></div>
+</div>
 
-<!--主体部分 开始-->
-<div class="content">
-    <div class="sortbox">
-        <div class="weui-row">
-            <div class="weui-col-33"><a href="" class="on">待支付</a></div>
-            <div class="weui-col-33"><a href="">待发货</a></div>
-            <div class="weui-col-33"><a href="">已完成</a></div>
-        </div>
+<!--tab-->
+<div class="ui-tab ui-row-flex">
+    <div class="ui-col">
+        <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center active">待支付</a>
+    </div>
+    <div class="ui-col">
+        <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center">待发货</a>
+    </div>
+    <div class="ui-col">
+        <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center">已收货</a>
     </div>
 </div>
-<!--主体部分 结束-->
+
+<!--订单列表-->
+<ul class="order-list">
+
+    <!--单个订单循环开始-->
+    <li>
+        <div class="order-list-title">
+            <img src="../images/order_status_0.png" />
+            <div class="order-list-title-text">
+                订单号：<span>213464644</span>
+            </div>
+        </div>
+        <!--单个订单的商品列表循环开始-->
+        <div class="ui-row-flex ui-order-list">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+                数量<span>x1</span>
+            </div>
+        </div>
+        <!--循环结束-->
+
+        <div class="ui-row-flex ui-order-list">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+                数量<span>x1</span>
+            </div>
+        </div>
+
+        <div class="ui-order-list-bottm">
+            <p>共<span>2</span>件商品<b>合计</b><i>￥1.00</i></p>
+            <div class="ui-order-list-btn">
+                <a class="cancel">取消订单</a>
+                <a class="pay" href="order.pay.html">去支付</a>
+            </div>
+        </div>
+    </li>
+    <!--单个订单循环结束-->
+
+    <li>
+        <div class="order-list-title">
+            <img src="../images/order_status_0.png" />
+            <div class="order-list-title-text">
+                订单号：<span>213464644</span>
+            </div>
+        </div>
+        <!--循环开始-->
+        <div class="ui-row-flex ui-order-list">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+                数量<span>x1</span>
+            </div>
+        </div>
+        <!--循环结束-->
+
+        <div class="ui-row-flex ui-order-list">
+            <div class="ui-col ui-icon">
+                <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
+            </div>
+            <div class="ui-col ui-text">
+                <h3>可口可乐</h3>
+                <h4>330ml*24灌/箱</h4>
+                <div class="bot">
+                    <del>￥99.00</del>
+                    <p>合同价<span>￥1.00</span></p>
+                </div>
+            </div>
+            <div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+                数量<span>x1</span>
+            </div>
+        </div>
+
+        <div class="ui-order-list-bottm">
+            <p>共<span>2</span>件商品<b>合计</b><i>￥1.00</i></p>
+            <div class="ui-order-list-btn">
+                <a class="cancel">取消订单</a>
+                <a class="pay" href="order.pay.html">去支付</a>
+            </div>
+        </div>
+    </li>
+
+</ul>
+
+<div class="include header" data-src="../module/header.html"></div>
+<div class="include" data-src="../module/module.bottom.html" data-index="2"></div>
 
 <script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
-<script type="text/javascript" src="../js/bottom.js?index=2" charset="utf-8"></script>
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
 <!--我的页面业务代码-->
 <script type="text/javascript">
-    $(function () {
-        $.showContent();
-    });
-
+    $.include(['css/ui.order.css']);
 </script>
 </body>
 </html>

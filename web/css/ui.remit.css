@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+/**
+ * 汇款
+ */
+
+body{
+	padding-top: 50px;
+}
+
+.remit-title{
+	background-color: #18ad9c;
+	padding: 20px;
+	color: #fff;
+}
+
+.remit-title p.pd{
+	padding-top: 5px;
+}
+
+.remit-list{
+	padding-bottom: 10px;
+}
+
+.remit-list li{
+	margin-top: 5px;
+	background-color: #fff;
+	padding: 15px;
+	color: #333;
+	font-size: 15px;
+}
+
+.remit-list li .bank{
+	max-width: 30px;
+	min-width: 30px;
+}
+
+.remit-list li .bank-name{
+	padding-left: 20px;
+}
+
+
+.remit-list li .check{
+	max-width: 20px;
+	min-width: 20px;
+}
+
+.remit-list li .check i{
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-image: url(../images/un_select.png);
+}
+
+.remit-list li .check i.active{
+	background-image: url(../images/selected.png);
+}
+
+.remit-list .bot{
+	padding-top: 10px;
+}
+
+.btn{
+	height: 44px;
+	margin: 30px 20px 0px 20px;
+	height: 44px;
+	background-color: #FE9900;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 16px;
+}
+
+.bottom-text{
+	padding-top: 10px;
+	color: #999;
+	text-align: center;
+	font-size: 12px;
+}
+
+.remit-form{
+	margin-top: 10px;
+	background-color: #fff;
+}
+
+.remit-form li{
+	position: relative;
+	height: 48px;
+	padding: 0 20px;
+}
+
+.remit-form li .title{
+	max-width: 80px;
+	min-width: 80px;
+	color: #333;
+}
+
+.remit-form li input{
+	height: 48px;
+	border: 0;
+	text-align: right;
+	width: 100%;
+	font-size: 14px;
+}
