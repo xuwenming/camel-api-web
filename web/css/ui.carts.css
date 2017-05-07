@@ -5,6 +5,7 @@
  */
 body{
 	padding-top: 50px;
+	padding-bottom: 120px !important;
 }
 
 .ui-carts-list{
@@ -26,15 +27,25 @@ body{
 	min-width: 30px;
 }
 
-.ui-carts-list li .ui-select span{
+.select{
 	display: block;
 	width: 24px;
 	height: 24px;
 	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-image: url(../images/un_select.png);
 }
 
-.ui-carts-list li .ui-select span.active{
+.selected{
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-image: url(../images/selected.png);
 }
 
@@ -135,4 +146,45 @@ body{
 
 .ui-carts-list li .ui-btn .num .ui-col:active{
 	background-color: #ccc;
+}
+
+.ui-carts-bottom{
+	position: fixed;
+	left: 0;
+	bottom: 60px;
+	width: 100%;
+	height: 50px;
+	z-index: 9999;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	padding-left: 12px;
+	border-top: 1px solid #eee;
+}
+
+.ui-carts-bottom .all b{
+	color: #333;
+	padding-left: 5px;
+}
+
+.ui-carts-bottom .text{
+	padding-right: 10px;
+}
+
+.ui-carts-bottom .text b{
+	color: #05C0AB;
+	padding-left: 3px;
+	font-size: 18px;
+}
+
+.ui-carts-bottom .btn{
+	max-width: 100px;
+	min-width: 100px;
+}
+
+.ui-carts-bottom .btn a{
+	height: 50px;
+	width: 100px;
+	background-color: #FE9900;
+	color: #fff;
+	font-size: 16px;
 }

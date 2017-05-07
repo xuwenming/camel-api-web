@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <meta charset="UTF-8">
     <title>购物车</title>
 </head>
 <body style="display: none;">
@@ -17,8 +18,8 @@
 
     <!--循环/s-->
     <li class="list-line ui-row-flex">
-        <div class="ui-col ui-select ui-flex-align-center ui-row-flex">
-            <span class="ui-img-cover active"></span>
+        <div class="ui-col ui-select ui-flex-align-center ui-row-flex" ng-click="onClikcItemSelect($index)">
+            <span class="select"></span>
         </div>
         <div class="ui-col ui-icon">
             <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
@@ -43,8 +44,8 @@
     <!--循环/e-->
 
     <li class="list-line ui-row-flex">
-        <div class="ui-col ui-select ui-flex-align-center ui-row-flex">
-            <span class="ui-img-cover"></span>
+        <div class="ui-col ui-select ui-flex-align-center ui-row-flex" ng-click="onClikcItemSelect($index)">
+            <span class="select"></span>
         </div>
         <div class="ui-col ui-icon">
             <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
@@ -68,8 +69,8 @@
     </li>
 
     <li class="list-line ui-row-flex">
-        <div class="ui-col ui-select ui-flex-align-center ui-row-flex">
-            <span class="ui-img-cover"></span>
+        <div class="ui-col ui-select ui-flex-align-center ui-row-flex" ng-click="onClikcItemSelect($index)">
+            <span class="select"></span>
         </div>
         <div class="ui-col ui-icon">
             <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
@@ -92,56 +93,19 @@
         </div>
     </li>
 
-    <li class="list-line ui-row-flex">
-        <div class="ui-col ui-select ui-flex-align-center ui-row-flex">
-            <span class="ui-img-cover"></span>
-        </div>
-        <div class="ui-col ui-icon">
-            <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
-        </div>
-        <div class="ui-col ui-text">
-            <h3>可口可乐</h3>
-            <h4>330ml*24灌/箱</h4>
-            <div class="bot">
-                <del>￥99.00</del>
-                <p>合同价<span>￥1.00</span></p>
-            </div>
-        </div>
-        <div class="ui-col ui-btn">
-            <a class="del ui-img-cover"></a>
-            <div class="num ui-row-flex">
-                <div class="ui-col br">—</div>
-                <div class="ui-col br">1</div>
-                <div class="ui-col">+</div>
-            </div>
-        </div>
-    </li>
-
-    <li class="list-line ui-row-flex">
-        <div class="ui-col ui-select ui-flex-align-center ui-row-flex">
-            <span class="ui-img-cover"></span>
-        </div>
-        <div class="ui-col ui-icon">
-            <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
-        </div>
-        <div class="ui-col ui-text">
-            <h3>可口可乐</h3>
-            <h4>330ml*24灌/箱</h4>
-            <div class="bot">
-                <del>￥99.00</del>
-                <p>合同价<span>￥1.00</span></p>
-            </div>
-        </div>
-        <div class="ui-col ui-btn">
-            <a class="del ui-img-cover"></a>
-            <div class="num ui-row-flex">
-                <div class="ui-col br">—</div>
-                <div class="ui-col br">1</div>
-                <div class="ui-col">+</div>
-            </div>
-        </div>
-    </li>
 </ul>
+
+<div class="ui-carts-bottom ui-row-flex">
+    <div class="ui-col all ui-row-flex ui-flex-align-center">
+        <span class="select"></span><b>全选</b>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-end text">
+        合计<b>￥1.00</b>
+    </div>
+    <div class="ui-col btn">
+        <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center">结算</a>
+    </div>
+</div>
 
 <div class="include header" data-src="../module/header.html"></div>
 <div class="include" data-src="../module/module.bottom.html" data-index="1"></div>
@@ -150,7 +114,7 @@
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
 <!--我的页面业务代码-->
 <script type="text/javascript">
-    $.include(['css/ui.carts.css']);
+    $.include(['css/ui.carts.css', 'js/shopping/index.js']);
 </script>
 </body>
 </html>
