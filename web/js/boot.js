@@ -19,9 +19,14 @@
             }
         },
         showContent: function () {
-            $('.weui-loadmore').hide();
             $('div[class$="content"]').show();
 
+        },
+        hideLoadMore : function() {
+            $('.weui-loadmore').hide();
+        },
+        showLoadMore : function() {
+            $('.weui-loadmore').show();
         }
     });
 
@@ -61,7 +66,12 @@
      */
     function hideContent () {
         //$('body').show();
-        $('body').prepend('<div class="weui-loadmore"> <i class="weui-loading"></i> <span class="weui-loadmore__tips">正在加载</span> </div>').show();
+        if($('.weui-loadmore').length > 0) {
+            $('body').show();
+        } else {
+            $('body').prepend('<div class="weui-loadmore"> <i class="weui-loading"></i> <span class="weui-loadmore__tips">正在加载</span> </div>').show();
+        }
+
         $('div[class$="content"]').hide();
     }
     $(function () {

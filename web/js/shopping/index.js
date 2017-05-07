@@ -3,6 +3,7 @@
  */
 $(function () {
     //TODO 写我的页面的js业务代码
+    $.hideLoadMore();
 
     $(".all").on("click",function(){
         var currentClass = $(this).children("span").attr("class");

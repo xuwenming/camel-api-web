@@ -1,4 +1,5 @@
-var server_url = 'http://www.mobiang.com/camel/';
+var server_url = 'http://www.mobiang.com/camel/'; // 服务器api接口地址
+//var server_url = 'http://localhost:8082/'; // 测试本地api接口地址
 
 function ajaxPost(url, parameter, success,beforeSend,time) {
     if(!url) return;
@@ -250,6 +251,22 @@ Util.cloneDom = function(templateId,data,viewData, showType){
 Util.cloneJson = function(oldObject){
     var newObject = jQuery.extend(true, {}, oldObject);
     return newObject;
+};
+
+Util.fenToYuan = function(fen) {
+    var yuan = Math.round(fen);
+    if (!yuan) {
+        return "0.00";
+    }
+    yuan = yuan.toString()
+    var before = yuan.substr(0, yuan.length - 2);
+    var end = yuan.substr(yuan.length - 2, 2);
+    yuan = before + "." + end;
+    var re = /(-?\d+)(\d{3})/;
+    while (re.test(yuan)) {
+        yuan = yuan.replace(re, "$1,$2")
+    }
+    return yuan;
 };
 
 function wxPayCall(params, success, fail) {

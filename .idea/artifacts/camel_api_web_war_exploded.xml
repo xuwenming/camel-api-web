@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="camel-api-web:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="camel-api-web:war exploded">
     <output-path>$PROJECT_DIR$/target/api_web</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="camel-api-web/web/Web" />

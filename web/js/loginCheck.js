@@ -18,6 +18,7 @@ $(function(){
             } else {
                 // TODO 非微信浏览器，暂不做其他操作
                 $.showContent();
+                $.cookie('tokenId', '123456789', {expires:12*60*60*1000, path:'/'});
                 return;
             }
         } else {

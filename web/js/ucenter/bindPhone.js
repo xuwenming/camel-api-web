@@ -51,7 +51,7 @@ function bindPhone() {
     }
     ajaxPost('api/apiUserController/edit', {phone : phone, validateCode : vcode}, function(data){
         if (data.success) {
-            window.location.href = '../home/index.html';
+            window.location.replace('../home/index.html');
         } else {
             alert(data.msg);
         }
