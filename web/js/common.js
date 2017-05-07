@@ -25,6 +25,32 @@ function ajaxPost(url, parameter, success,beforeSend,time) {
     });
 }
 
+function ajaxPostSync(url, parameter, success,beforeSend,time) {
+    if(!url) return;
+    $.ajax({
+        type: "POST",
+        url: getUrl(url),
+        data: parameter,
+        dataType:"json",
+        async : false,
+        beforeSend:function(){
+            if(beforeSend)
+                beforeSend();
+        },
+        success:function (data) {
+            if(success)
+                success(data);
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(XMLHttpRequest.status + " " + XMLHttpRequest.readyState + " " + textStatus + " " + errorThrown);
+        },
+        complete:function(XMLHttpRequest,textStatus){
+            time = time || 500;
+            if(time != -1) $.loading.close(time);
+        }
+    });
+}
+
 function href(url) {
     window.location.href = getUrl(url);
 }
