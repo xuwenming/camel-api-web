@@ -376,7 +376,6 @@ wx.ready(function () {
         });
     };
     JWEIXIN.openAddress = function(success) {
-        alert(111);
         wx.openAddress({
             success: function (res) {
                 // 用户成功拉出地址
