@@ -4,6 +4,30 @@
 $(function () {
     $.hideLoadMore();
     init();
+
+    $('.receiptAddress').click(function() {
+        try {
+            JWEIXIN.openAddress(function (data) {
+                var params = {};
+                params.userName = data.userName;
+                params.postalCode = data.postalCode;
+                params.provinceName = data.provinceName;
+                params.cityName = data.cityName;
+                params.countyName = data.countryName;
+                params.detailInfo = data.detailInfo.replace(/[\r\n]/g, "");
+                params.telNumber = data.telNumber;
+                params.atype = 1;
+
+                $('.userInfo').html(data.userName + " " + data.telNumber);
+                $('.address').html(data.provinceName + data.cityName + data.countryName + data.detailInfo);
+
+                //alert(data.userName + " " + data.postalCode + " " + data.provinceName + " " + data.cityName
+                //+ " " + data.countryName + " " + data.detailInfo + " " + data.nationalCode + " " + data.telNumber)
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    });
 });
 
 function init() {

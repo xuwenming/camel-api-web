@@ -579,3 +579,22 @@
 		transform: scale(1)
 	}
 }
+
+.nodata{
+	font-size:14px;
+	text-align:center;
+	color:#666;
+	background-color: #efefef;
+}
+.nodata_img1{
+	width: 60px;
+	height: 60px;
+	margin: 30px 0 10px 0;
+	display: inline;
+}
+.nodata_img2{
+	width:70px;
+	height:70px;
+	margin:20px 0 5px 0;
+	display: inline;
+}

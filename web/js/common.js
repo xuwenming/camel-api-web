@@ -164,9 +164,9 @@ Util.arrayRemove = function(arr, v){
 Util.noDate = function(type, text, image){
     var $div = $('<div class="nodata"></div>');
     type = type || 1;
-    image = image || (type == 1 ? 'wsale/images/nodata-icon.png' : 'wsale/images/nodata2-icon.png');
+    image = image || (type == 1 ? '../images/nodata-icon.png' : '../images/nodata2-icon.png');
     text = text || (type == 1 ? '暂无记录' : '暂无拍品');
-    $div.append('<img src="'+base+image+'" class="nodata_img'+type+'"/>');
+    $div.append('<div><img src="'+image+'" class="nodata_img'+type+'"/></div>');
     $div.append('<div>'+text+'</div>');
     return $div;
 };

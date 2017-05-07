@@ -31,14 +31,26 @@ var CAMEL_HOME = {
             }
         });
     },
-    _getItemList : function() {
-        var params = {page:currPage, rows:rows};
+    _getItemList : function(params) {
+        $.extend(params || {}, {page:currPage, rows:rows});
+        if(currPage == 1) {
+            $("#itemList").empty();
+            $.showLoadMore();
+        }
+
         ajaxPost('api/apiItemController/dataGrid', params, function(data){
             if(data.success) {
                 var result = data.obj;
-                for(var i in result.rows) {
-                    var item = result.rows[i];
-                    CAMEL_HOME._buildItem(item);
+                if(result.rows.length != 0) {
+                    for (var i in result.rows) {
+                        var item = result.rows[i];
+                        CAMEL_HOME._buildItem(item);
+                    }
+                    loading = false;
+                    currPage ++;
+                } else {
+                    if(result.total == 0)
+                        $("#itemList").append(Util.noDate(2, '没有相关的商品'));
                 }
 
                 if(result.rows.length >= rows) {
@@ -46,8 +58,6 @@ var CAMEL_HOME = {
                 } else {
                     $.hideLoadMore();
                 }
-                loading = false;
-                currPage ++;
             } else {
                 $(document.body).destroyInfinite();
                 $.hideLoadMore();
@@ -58,6 +68,10 @@ var CAMEL_HOME = {
         var viewData = Util.cloneJson(itemCategory);
         var dom = Util.cloneDom("itemCategory_template", itemCategory, viewData);
         $("#itemCategory").append(dom);
+        dom.click(itemCategory.id, function(event){
+            currPage = 1;
+            CAMEL_HOME._getItemList({categoryId:event.data});
+        });
         return dom;
     },
     _buildItem : function(item) {
