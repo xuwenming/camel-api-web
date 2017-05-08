@@ -6,7 +6,6 @@ $(function () {
     init();
 
     $('.receiptAddress').click(function() {
-        alert(111);
         try {
             JWEIXIN.openAddress(function (data) {
                 var params = {};
