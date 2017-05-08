@@ -112,7 +112,7 @@ function delQueStr(url, ref) {
     }
 }
 
-function GetRequest() {
+function GetRequest(param) {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest = new Object();
     if (url.indexOf("?") != -1) {
@@ -122,8 +122,10 @@ function GetRequest() {
             theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
         }
     }
-    return theRequest;
+    if(param) return theRequest[param]
+    else return theRequest;
 }
+
 
 var Util = {};
 // 密码校验，6-20位字母,数字组合
