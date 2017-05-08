@@ -6,6 +6,7 @@ $(function () {
     init();
 
     $('.receiptAddress').click(function() {
+        alert(111);
         try {
             JWEIXIN.openAddress(function (data) {
                 var params = {};
@@ -13,7 +14,7 @@ $(function () {
                 params.postalCode = data.postalCode;
                 params.provinceName = data.provinceName;
                 params.cityName = data.cityName;
-                params.countryName = data.countryName;
+                params.countyName = data.countryName;
                 params.detailInfo = data.detailInfo.replace(/[\r\n]/g, "");
                 params.telNumber = data.telNumber;
 
@@ -48,7 +49,7 @@ function init() {
             }
             if(user.mbUserAddress) {
                 $('.userInfo').html(user.mbUserAddress.userName + " " + user.mbUserAddress.telNumber);
-                $('.address').html(user.mbUserAddress.provinceName + user.mbUserAddress.cityName + user.mbUserAddress.countryName + user.mbUserAddress.detailInfo);
+                $('.address').html(user.mbUserAddress.provinceName + user.mbUserAddress.cityName + user.mbUserAddress.countyName + user.mbUserAddress.detailInfo);
             }
             $('.mbContract').html(user.mbContract);
         }
