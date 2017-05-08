@@ -41,3 +41,7 @@ div[id^="loading_"] {
 	font-size: 12px;
 	text-shadow: 0 0px 0 #f3f3f3;
 }
+.U-guodu-box .U-msg img {
+	display: inline;
+	width: inherit;
+}

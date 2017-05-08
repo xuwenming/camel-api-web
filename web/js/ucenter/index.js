@@ -13,13 +13,17 @@ $(function () {
                 params.postalCode = data.postalCode;
                 params.provinceName = data.provinceName;
                 params.cityName = data.cityName;
-                params.countyName = data.countryName;
+                params.countryName = data.countryName;
                 params.detailInfo = data.detailInfo.replace(/[\r\n]/g, "");
                 params.telNumber = data.telNumber;
-                params.atype = 1;
 
                 $('.userInfo').html(data.userName + " " + data.telNumber);
                 $('.address').html(data.provinceName + data.cityName + data.countryName + data.detailInfo);
+                ajaxPost('api/apiUserAddressController/add', params, function(data){
+                    if(data.success) {
+                        // 不做任何操作
+                    }
+                });
 
                 //alert(data.userName + " " + data.postalCode + " " + data.provinceName + " " + data.cityName
                 //+ " " + data.countryName + " " + data.detailInfo + " " + data.nationalCode + " " + data.telNumber)
@@ -43,8 +47,8 @@ function init() {
                 $('.shopAddress').html(user.mbShop.regionPath + user.mbShop.address);
             }
             if(user.mbUserAddress) {
-                $('.userInfo').html(user.mbUserAddress.contactPeople + " " + user.mbUserAddress.contactPhone);
-                $('.address').html(user.mbUserAddress.address);
+                $('.userInfo').html(user.mbUserAddress.userName + " " + user.mbUserAddress.telNumber);
+                $('.address').html(user.mbUserAddress.provinceName + user.mbUserAddress.cityName + user.mbUserAddress.countryName + user.mbUserAddress.detailInfo);
             }
             $('.mbContract').html(user.mbContract);
         }

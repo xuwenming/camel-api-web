@@ -3,6 +3,7 @@
  */
 var time = 59;
 $(function () {
+    $.hideLoadMore();
     $('#vcode-btn').bind('click', getValidateCode);
     $('#bindPhone-btn').bind('click', bindPhone);
 });
@@ -51,7 +52,7 @@ function bindPhone() {
     }
     ajaxPost('api/apiUserController/edit', {phone : phone, validateCode : vcode}, function(data){
         if (data.success) {
-            window.location.replace('../home/index.html');
+           window.location.replace('../home/index.html');
         } else {
             alert(data.msg);
         }

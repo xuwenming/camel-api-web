@@ -12,7 +12,7 @@ var CAMEL_HOME = {
             loading = true;
             setTimeout(function() {
                 CAMEL_HOME._getItemList();
-            }, 20);
+            }, 200);
         });
         CAMEL_HOME._getItemList();
 
@@ -32,12 +32,11 @@ var CAMEL_HOME = {
         });
     },
     _getItemList : function(params) {
-        $.extend(params || {}, {page:currPage, rows:rows});
+        params = $.extend(params || {}, {page:currPage, rows:rows});
         if(currPage == 1) {
             $("#itemList").empty();
             $.showLoadMore();
         }
-
         ajaxPost('api/apiItemController/dataGrid', params, function(data){
             if(data.success) {
                 var result = data.obj;
@@ -46,16 +45,17 @@ var CAMEL_HOME = {
                         var item = result.rows[i];
                         CAMEL_HOME._buildItem(item);
                     }
-                    loading = false;
-                    currPage ++;
                 } else {
                     if(result.total == 0)
                         $("#itemList").append(Util.noDate(2, '没有相关的商品'));
                 }
 
                 if(result.rows.length >= rows) {
+                    loading = false;
+                    currPage ++;
                     $.showLoadMore();
                 } else {
+                    loading = true;
                     $.hideLoadMore();
                 }
             } else {
@@ -83,8 +83,12 @@ var CAMEL_HOME = {
         dom.addClass('ui-row-flex');
         $("#itemList").append(dom);
         // 加入购入车
-        dom.find('a.carts').click(item.id, function(){
-
+        dom.find('a.carts').click(item.id, function(event){
+            ajaxPost('api/apiShoppingController/add', {itemId : event.data, quantity : 1}, function(data){
+                if(data.success) {
+                    $.toast("加入购物车成功", 1000);
+                }
+            });
         });
         // 立即抢购
         dom.find('a.btn').click(item.id, function(event){

@@ -11,7 +11,7 @@
 			if(opts.type == 1) {
 				loadHtml = "<div id=\"loading_"+opts.id+"\">"
 					+ "<div class=\"DialogDiv\" style=\"display:none; \">"
-					+ "<div class=\"weui-infinite-scroll\" style=\"font-size:12px;\"><div class=\"infinite-preloader\"></div>"+defaults.msg+"</div>"
+					+ "<div class=\"weui-loadmore loading\" style=\"width: 100%;\"><i class=\"weui-loading\"></i><div class=\"weui-loadmore__tips\" style=\"font-size:12px;\">"+opts.msg+"</div></div>"
 					+ "</div></div>";
 			} else if(opts.type == 2) {
 				loadHtml = "<div id=\"loading_"+opts.id+"\" style='opacity: 0.5;filter: alpha(opacity = 0.5);'>"

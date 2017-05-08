@@ -23,17 +23,18 @@
 
         },
         hideLoadMore : function() {
-            $('.weui-loadmore').hide();
+            $('.weui-loadmore:not(.loading)').hide();
         },
         showLoadMore : function() {
-            $('.weui-loadmore').show();
+            $('.weui-loadmore:not(.loading)').show();
         }
     });
 
     /**
      * 加载js csc
      * */
-    $.include(['js/jquery-weui.min.js',
+    $.include([
+        'js/jquery-weui.min.js',
         'js/swiper.min.js',
         'js/common.js',
         'js/extJquery.js',
@@ -43,12 +44,13 @@
         'js/jquery.include.js',
         'js/loginCheck.js',
 
+        'css/weui.min.css', // 必须放在jquery-weui.min.css前面，否则部分样式失效
         'css/jquery-weui.min.css',
-        'css/weui.min.css',
         'css/swiper.min.css',
         'js/load/load.css',
         'css/ui.base.css',
-        'css/ui.common.css']);
+        'css/ui.common.css'
+    ]);
 
     window.addEventListener('load', function () {
         FastClick.attach(document.body);
