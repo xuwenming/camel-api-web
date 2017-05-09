@@ -281,7 +281,7 @@ Util.fenToYuan = function(fen) {
 };
 
 function wxPayCall(params, success, fail) {
-    ajaxPost('api/pay/pay', params, function(data){
+    ajaxPost('api/pay/wxPay', params, function(data){
         if (data.success) {
             var obj = data.obj;
             if(parseInt(obj.agent) < 5) {
