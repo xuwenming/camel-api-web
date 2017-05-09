@@ -81,9 +81,10 @@ var CAMEL_ORDER_CONFIRM = {
                     var result = data.obj;
                     for (var i in result.rows) {
                         var shopping = result.rows[i];
-                        if(Util.arrayContains(shoppingIds.split(','), shopping.id))
+                        if(Util.arrayContains(shoppingIds.split(','), shopping.id)) {
                             shopping.mbItem.quantity = shopping.quantity;
-                        CAMEL_ORDER_CONFIRM._buildItem(shopping.mbItem);
+                            CAMEL_ORDER_CONFIRM._buildItem(shopping.mbItem);
+                        }
                     }
                     CAMEL_ORDER_CONFIRM._totalPrice();
                 }
