@@ -86,16 +86,24 @@ var CAMEL_HOME = {
         }
         $("#itemList").append(dom);
         // 加入购入车
-        dom.find('a.carts').click(item.id, function(event){
-            ajaxPost('api/apiShoppingController/add', {itemId : event.data, quantity : 1}, function(data){
+        dom.find('a.carts').click(item, function(event){
+            if(event.data.quantity <= 0) {
+                $.toast("库存不足", "forbidden");
+                return;
+            }
+            ajaxPost('api/apiShoppingController/add', {itemId : event.data.id, quantity : 1}, function(data){
                 if(data.success) {
                     $.toast("加入购物车成功", 1000);
                 }
             });
         });
         // 立即抢购
-        dom.find('a.btn').click(item.id, function(event){
-            window.location.href = '../order/order_confirm.html?itemId=' + event.data;
+        dom.find('a.btn').click(item, function(event){
+            if(event.data.quantity <= 0) {
+                $.toast("库存不足", "forbidden");
+                return;
+            }
+            window.location.href = '../order/order_confirm.html?itemId=' + event.data.id;
         });
 
         dom.find('i.ui-img-cover').click(item.id, function(event){

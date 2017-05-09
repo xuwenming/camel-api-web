@@ -44,7 +44,7 @@ var CAMEL_ORDER_CONFIRM = {
                     params.telNumber = data.telNumber;
 
                     var telNumber = data.telNumber.substr(0, 3) + '****' + data.telNumber.substr(data.telNumber.length - 4);
-                    $('#address .info').append('<h3><b>'+data.userName+'</b><span>'+telNumber+'</span></h3>');
+                    $('#address .info').empty().append('<h3><b>'+data.userName+'</b><span>'+telNumber+'</span></h3>');
                     $('#address .info').append('<p>'+data.provinceName+' '+data.cityName+' '+data.countryName+' '+data.detailInfo+'</p>');
 
                     $('#contactPhone').val(data.telNumber);
@@ -69,6 +69,7 @@ var CAMEL_ORDER_CONFIRM = {
             ajaxPost('api/apiItemController/get', {id:itemId}, function(data){
                 if(data.success) {
                     var item = data.obj;
+                    item.quantitys = item.quantity;
                     item.quantity = 1;
                     CAMEL_ORDER_CONFIRM._buildItem(item);
                 }
@@ -105,13 +106,51 @@ var CAMEL_ORDER_CONFIRM = {
         if(!mbItem.contractPrice) {
             dom.find('.bot').html('<p><span name="contractPrice">'+viewData.marketPrice+'</span></p>');
         }
+
         $(".confirm-list").append(dom);
+
+        if(itemId) {
+            $('.ui-num').removeClass('ui-row-flex').hide();
+            $('.ui-btn').show();
+            dom.find('.sub').click(function(){
+                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn div[name=quantity]').text());
+                if(num <= 1) return;
+                $.showLoading('正在加载');
+                $li.find('.ui-btn div[name=quantity]').text(num - 1);
+                CAMEL_ORDER_CONFIRM._totalPrice();
+                setTimeout(function(){
+                    $.hideLoading();
+                }, 200);
+            });
+            dom.find('.add').click(mbItem.quantitys, function(event){
+                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn div[name=quantity]').text());
+                if(num == event.data) {
+                    $.toast("亲，不能购买更多哦", "text");
+                    return;
+                }
+                $.showLoading('正在加载');
+                $li.find('.ui-btn div[name=quantity]').html(num + 1);
+                CAMEL_ORDER_CONFIRM._totalPrice();
+                setTimeout(function(){
+                    $.hideLoading();
+                }, 200);
+            });
+
+        } else if(shoppingIds) {
+            $('.ui-btn').removeClass('ui-row-flex').hide();
+            $('.ui-num').show();
+        }
 
         return dom;
     },
     _totalPrice : function() {
         var totalPrice = $('.confirm-list li').map(function(){
-            var num = $(this).find('[name=quantity]').text();
+            var num;
+            if(itemId) {
+                num = $(this).find('.ui-btn div[name=quantity]').text();
+            } else if(shoppingIds) {
+                num = $(this).find('.ui-num div[name=quantity]').text();
+            }
             return $(this).find('[name=contractPrice]').text().substr(1)*100*num;
         }).get().join('+');
         $('.totalPrice').html('￥' + Util.fenToYuan(eval(totalPrice)));
@@ -146,7 +185,7 @@ var CAMEL_ORDER_CONFIRM = {
             if(data.success && data.obj) {
                 var address = data.obj;
                 var telNumber = address.telNumber.substr(0, 3) + '****' + address.telNumber.substr(address.telNumber.length - 4);
-                $('#address .info').append('<h3><b>'+address.userName+'</b><span>'+telNumber+'</span></h3>');
+                $('#address .info').empty().append('<h3><b>'+address.userName+'</b><span>'+telNumber+'</span></h3>');
                 $('#address .info').append('<p>'+address.provinceName+' '+address.cityName+' '+address.countyName+' '+address.detailInfo+'</p>');
 
                 $('#contactPhone').val(address.telNumber);
@@ -199,15 +238,20 @@ var CAMEL_ORDER_CONFIRM = {
 
         // 商品信息
         $('.confirm-list li').each(function(){
-            var itemId = $(this).attr('data-id'),
-                quantity = $(this).find('[name=quantity]').text(),
+            var item_id = $(this).attr('data-id'),
                 buyPrice = $(this).find('[name=contractPrice]').text().substr(1)*100,
                 marketPrice = buyPrice;
             if($(this).find('[name=marketPrice]').length != 0) {
                 marketPrice = $(this).find('[name=marketPrice]').text().substr(1)*100;
             }
+            var quantity;
+            if(itemId) {
+                quantity = $(this).find('.ui-btn div[name=quantity]').text();
+            } else if(shoppingIds) {
+                quantity = $(this).find('.ui-num div[name=quantity]').text();
+            }
             var item = {
-                itemId : itemId,
+                itemId : item_id,
                 marketPrice : marketPrice,
                 buyPrice : buyPrice,
                 quantity : quantity

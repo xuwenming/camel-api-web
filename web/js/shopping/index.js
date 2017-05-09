@@ -75,24 +75,40 @@ var CAMEL_SHOPPING = {
         dom.find('.sub').click(shopping.id, function(event){
             var $li = $(this).closest('li'), num = parseInt($li.find('[name=quantity]').text());
             if(num <= 1) return;
+            $.showLoading('正在加载');
             ajaxPost('api/apiShoppingController/edit', {id:event.data, quantity:num-1}, function(data){
                 if(data.success) {
                     $li.find('[name=quantity]').text(num - 1);
                     if($li.find('span.selected').length != 0) {
                         CAMEL_SHOPPING._totalPrice();
+                    } else {
+                        $li.find('.ui-select').click();
                     }
                 }
+                setTimeout(function(){
+                    $.hideLoading();
+                }, 200);
             });
         });
-        dom.find('.add').click(shopping.id, function(event){
+        dom.find('.add').click(shopping, function(event){
             var $li = $(this).closest('li'), num = parseInt($li.find('[name=quantity]').text());
-            ajaxPost('api/apiShoppingController/edit', {id:event.data, quantity:num+1}, function(data){
+            if(num == shopping.mbItem.quantity) {
+                $.toast("亲，不能购买更多哦", "text");
+                return;
+            }
+            $.showLoading('正在加载');
+            ajaxPost('api/apiShoppingController/edit', {id:event.data.id, quantity:num+1}, function(data){
                 if(data.success) {
                     $li.find('[name=quantity]').html(num + 1);
                     if($li.find('span.selected').length != 0) {
                         CAMEL_SHOPPING._totalPrice();
+                    } else {
+                        $li.find('.ui-select').click();
                     }
                 }
+                setTimeout(function(){
+                    $.hideLoading();
+                }, 200);
             });
         });
         dom.find('.del').click(shopping.id, function(event){
