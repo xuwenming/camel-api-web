@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>订单支付</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">订单支付</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="order_pay_content">
+    <div class="pay-header">
+        <p>订单编号：<span class="orderId"></span></p>
+        <p>价格：<span class="amount">￥1.00</span></p>
+    </div>
+
+    <div class="pay-select">
+        <div class="pay-select-title ui-row-flex ui-flex-align-center">请选择支付方式</div>
+        <ul class="pay-list">
+            <li class="ui-row-flex">
+                <div class="ui-col icon ui-row-flex ui-flex-align-center"><img src="../images/icon_wechat.png" /> </div>
+                <div class="ui-col text ui-row-flex ui-flex-align-center">微信支付</div>
+                <div class="ui-col check ui-row-flex ui-flex-align-center">
+                    <i class="on"></i>
+                </div>
+            </li>
+            <li class="ui-row-flex">
+                <div class="ui-col icon ui-row-flex ui-flex-align-center"><img src="../images/icon_yu.png" /> </div>
+                <div class="ui-col text ui-row-flex ui-flex-align-center">余额支付</div>
+                <div class="ui-col check ui-row-flex ui-flex-align-center">
+                    <i class="off"></i>
+                </div>
+            </li>
+            <li class="ui-row-flex">
+                <div class="ui-col icon ui-row-flex ui-flex-align-center"><img src="../images/icon_zz.png" /> </div>
+                <div class="ui-col text ui-row-flex ui-flex-align-center">转账汇款</div>
+                <div class="ui-col check ui-row-flex ui-flex-align-center">
+                    <i class="off"></i>
+                </div>
+            </li>
+        </ul>
+
+        <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple" id="payBtn">安全支付</a>
+
+    </div>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.pay.css', 'js/pay/pay.js']);
+</script>
+</body>
+</html>

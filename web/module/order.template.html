@@ -1,0 +1,31 @@
+<!--订单商品列表-->
+<li id="order_item_template" class=" ui-order-list" style="display: none;">
+	<div class="ui-col ui-icon">
+		<i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
+	</div>
+	<div class="ui-col ui-text">
+		<h3 name="name">可口可乐</h3>
+		<h4><span>330ml*24灌</span>/<span name="quantityUnitName"></span></h4>
+		<div class="bot">
+			<del name="marketPrice"></del>
+			<p>合同价<span name="contractPrice"></span></p>
+		</div>
+	</div>
+	<div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+		数量x<span name="quantity">1</span>
+	</div>
+</li>
+
+<!-- 配送方式 -->
+<label id="dw_template" class="weui-cell weui-check__label" style="display: none;">
+	<div class="weui-cell__bd">
+		<p name="name"></p>
+	</div>
+	<div class="weui-cell__ft">
+		<input type="radio" class="weui-check" name="radio1">
+		<span class="weui-icon-checked"></span>
+	</div>
+</label>
+
+
+

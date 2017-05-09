@@ -163,6 +163,15 @@ Util.arrayRemove = function(arr, v){
         arr.splice(index, 1);
     }
 };
+Util.arrayContains = function(arr, v){
+    var i = arr.length;
+    while (i--) {
+        if (arr[i] == v) {
+            return true;
+        }
+    }
+    return false;
+};
 Util.noDate = function(type, text, image){
     var $div = $('<div class="nodata"></div>');
     type = type || 1;

@@ -14,138 +14,112 @@
     <div class="ui-col header-icon"></div>
 </div>
 
-<ul class="confirm-list">
-    <!--单个订单的商品列表循环开始-->
-    <li class="ui-row-flex ui-order-list">
-        <div class="ui-col ui-icon">
-            <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
-        </div>
-        <div class="ui-col ui-text">
-            <h3>可口可乐</h3>
-            <h4>330ml*24灌/箱</h4>
-            <div class="bot">
-                <del>￥99.00</del>
-                <p>合同价<span>￥1.00</span></p>
-            </div>
-        </div>
-        <div class="ui-col ui-btn ui-row-flex ui-flex-align-end ui-flex-pack-end">
-            <div class="num ui-row-flex">
-                <div class="ui-col br">—</div>
-                <div class="ui-col br">1</div>
-                <div class="ui-col">+</div>
-            </div>
-        </div>
-    </li>
-    <!--循环结束-->
+<div class="order_confirm_content">
+    <input type="hidden" id="totalPrice">
+    <input type="hidden" id="contactPhone">
+    <input type="hidden" id="contactPeople">
+    <input type="hidden" id="deliveryAddress">
+    <input type="hidden" id="deliveryWay" value="DW02">
+    <input type="hidden" id="invoiceWay" value="IW01">
+    <ul class="confirm-list">
 
-    <li class="ui-row-flex ui-order-list">
-        <div class="ui-col ui-icon">
-            <i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
-        </div>
-        <div class="ui-col ui-text">
-            <h3>可口可乐</h3>
-            <h4>330ml*24灌/箱</h4>
-            <div class="bot">
-                <del>￥99.00</del>
-                <p>合同价<span>￥1.00</span></p>
-            </div>
-        </div>
-        <div class="ui-col ui-btn ui-row-flex ui-flex-align-end ui-flex-pack-end">
-            <div class="num ui-row-flex">
-                <div class="ui-col br">—</div>
-                <div class="ui-col br">1</div>
-                <div class="ui-col">+</div>
-            </div>
-        </div>
-    </li>
-</ul>
+    </ul>
 
-<div class="custom ui-row-flex">
-    <div class="ui-col ui-row-flex ui-flex-align-center icon"><i class="ui-img-cover"></i></div>
-    <div class="ui-col info">
-        <h3><b>李先生</b><span>185****4243</span></h3>
-        <p>上海市 上海市 浦东新区 祖冲之路</p>
+    <div class="custom ui-row-flex" id="address">
+        <div class="ui-col ui-row-flex ui-flex-align-center icon"><i class="ui-img-cover"></i></div>
+        <div class="ui-col info">
+        </div>
     </div>
-</div>
 
-<ul class="order-way">
-    <li class="ui-row-flex">
-        <div class="ui-col ui-row-flex ui-flex-align-center">配送方式</div>
-        <div class="ui-col rg">
-            <p>上门自提</p>
-            <p>玉桥路</p>
-        </div>
-    </li>
-    <li class="ui-row-flex">
-        <div class="ui-col ui-row-flex ui-flex-align-center">配送方式</div>
-        <div class="ui-col rg">
-            <p>送货上门</p>
-            <p class="color">￥20.00</p>
-        </div>
-    </li>
-</ul>
+    <ul class="order-way">
+        <li class="ui-row-flex openDeliveryWay">
+            <div class="ui-col ui-row-flex ui-flex-align-center">配送方式</div>
+            <div class="ui-col rg">
+                <p class="deliveryWay">送货上门</p>
+                <!--<p class="color">￥20.00</p>-->
+            </div>
+        </li>
+    </ul>
 
-<div class="order-remark">
-    <div class="order-remark-title ui-row-flex ui-flex-align-center">订单备注</div>
-    <div class="order-remark-input">
-        <textarea placeholder="请输入订单备注信息"></textarea>
+    <div class="order-remark">
+        <div class="order-remark-title ui-row-flex ui-flex-align-center">订单备注</div>
+        <div class="order-remark-input">
+            <textarea placeholder="请输入订单备注信息" id="userRemark"></textarea>
+        </div>
     </div>
-</div>
 
-<ul class="order-mess">
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开具发票</div>
-        <div class="ui-col order-mess-btn ui-row-flex ui-flex-align-center ui-flex-pack-end">
-            <input class="weui-switch" type="checkbox">
-            <!--<a class="ui-img-cover on"></a>-->
-        </div>
-    </li>
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">公司名称</div>
-        <div class="ui-col order-mess-input">
-            <input type="text" placeholder="请输入"/>
-        </div>
-    </li>
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">税务登记号</div>
-        <div class="ui-col order-mess-input">
-            <input type="text" placeholder="请输入"/>
-        </div>
-    </li>
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行</div>
-        <div class="ui-col order-mess-input">
-            <input type="text" placeholder="请输入"/>
-        </div>
-    </li>
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行账号</div>
-        <div class="ui-col order-mess-input">
-            <input type="text" placeholder="请输入"/>
-        </div>
-    </li>
-    <li class="ui-row-flex list-line">
-        <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">发票类型</div>
-        <div class="ui-col order-mess-input">
-            <input type="text" placeholder="请输入"/>
-        </div>
-    </li>
-</ul>
+    <ul class="order-mess">
+        <li class="ui-row-flex list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开具发票</div>
+            <div class="ui-col order-mess-btn ui-row-flex ui-flex-align-center ui-flex-pack-end">
+                <input class="weui-switch" type="checkbox" id="switchInvoice">
+                <!--<a class="ui-img-cover on"></a>-->
+            </div>
+        </li>
+        <li class="list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">公司名称</div>
+            <div class="ui-col order-mess-input">
+                <input type="text" placeholder="请输入" id="companyName" class="required"/>
+            </div>
+        </li>
+        <li class="list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">税务登记号</div>
+            <div class="ui-col order-mess-input">
+                <input type="text" placeholder="请输入" id="companyTfn" class="required"/>
+            </div>
+        </li>
+        <li class="list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行</div>
+            <div class="ui-col order-mess-input">
+                <input type="text" placeholder="请输入" id="bankName"/>
+            </div>
+        </li>
+        <li class="list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行账号</div>
+            <div class="ui-col order-mess-input">
+                <input type="text" placeholder="请输入" id="bankNumber"/>
+            </div>
+        </li>
+        <li class="list-line">
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">发票用途</div>
+            <div class="ui-col order-mess-input">
+                <input type="text" placeholder="请输入" id="invoiceUse"/>
+            </div>
+        </li>
+    </ul>
 
-<div class="order-confirm-bottom ui-row-flex">
-    <div class="ui-col text ui-row-flex ui-flex-align-center">合计<span>￥22.00</span></div>
-    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-end">
-        <a class="solid" href="order.details.html">提交</a>
+    <div class="order-confirm-bottom ui-row-flex">
+        <div class="ui-col text ui-row-flex ui-flex-align-center">合计<span class="totalPrice"></span></div>
+        <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-end">
+            <a class="solid" id="placeOrder">提交</a>
+        </div>
+    </div>
+
+    <div id="deliveryWayPopup" class="weui-popup__container popup-bottom" style="background: rgba(0,0,0,.6);">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal" style="height: 300px;background:#ffffff;">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="javascript:;" class="picker-button close-popup" style="color: #e64340;">关闭</a>
+                    <h1 class="title">配送方式</h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="weui-cells weui-cells_radio" id="dw">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <div class="include header" data-src="../module/header.html"></div>
+<div class="include header" data-src="../module/order.template.html"></div>
 
 <script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
 <!--我的页面业务代码-->
 <script type="text/javascript">
-    $.include(['css/ui.order.confirm.css', 'js/order/order_confirm.js']);
+    $.include(['css/ui.order.confirm.css', 'js/jweixin-1.2.0.js', 'js/jweixin-common.js', 'js/order/order_confirm.js']);
 </script>
 </body>
 </html>

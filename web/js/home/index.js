@@ -81,6 +81,9 @@ var CAMEL_HOME = {
         var dom = Util.cloneDom("item_list_template", item, viewData);
         dom.find('i.ui-img-cover').css('background-image', 'url('+item.url+')');
         dom.addClass('ui-row-flex');
+        if(!item.contractPrice) {
+            dom.find('.bot').html('<p>'+viewData.marketPrice+'</p>');
+        }
         $("#itemList").append(dom);
         // 加入购入车
         dom.find('a.carts').click(item.id, function(event){

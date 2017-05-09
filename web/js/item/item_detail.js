@@ -29,8 +29,13 @@ function init() {
             }
             $('#name').html(item.name);
             $('#quantityUnitName').html(item.quantityUnitName);
-            $('#contractPrice').html('￥' + Util.fenToYuan(item.contractPrice));
-            $('#marketPrice').html('￥' + Util.fenToYuan(item.marketPrice));
+            if(item.contractPrice) {
+                $('#contractPrice').html('￥' + Util.fenToYuan(item.contractPrice));
+                $('#marketPrice').html('￥' + Util.fenToYuan(item.marketPrice));
+            } else {
+                $('.price').html('￥' + Util.fenToYuan(item.marketPrice));
+            }
+
         }
     });
 }
