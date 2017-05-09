@@ -95,6 +95,10 @@ var CAMEL_HOME = {
         });
         // 立即抢购
         dom.find('a.btn').click(item.id, function(event){
+            window.location.href = '../order/order_confirm.html?itemId=' + event.data;
+        });
+
+        dom.find('i.ui-img-cover').click(item.id, function(event){
             window.location.href = '../item/item_detail.html?itemId=' + event.data;
         });
         return dom;

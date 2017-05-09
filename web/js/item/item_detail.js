@@ -11,6 +11,9 @@ $(function(){
             }
         });
     });
+    $('.buy').click(function(){
+        window.location.href = '../order/order_confirm.html?itemId=' + event.data;
+    });
 });
 
 function init() {

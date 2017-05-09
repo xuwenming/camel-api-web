@@ -2,6 +2,7 @@
  * Created by snow on 17/5/3.
  */
 var shoppingIds = GetRequest('shoppingIds');
+var itemId = GetRequest('itemId');
 $(function () {
     CAMEL_ORDER_CONFIRM.init();
 });
@@ -64,19 +65,32 @@ var CAMEL_ORDER_CONFIRM = {
         $('#placeOrder').bind('click', CAMEL_ORDER_CONFIRM._placeOrder);
     },
     _getItemList : function() {
-        ajaxPost('api/apiShoppingController/dataGrid', {page:1, rows:40, sort:'addtime', order:'desc'}, function(data){
-            if(data.success) {
-                var result = data.obj;
-                for (var i in result.rows) {
-                    var shopping = result.rows[i];
-                    if(Util.arrayContains(shoppingIds.split(','), shopping.id))
-                        shopping.mbItem.quantity = shopping.quantity;
-                        CAMEL_ORDER_CONFIRM._buildItem(shopping.mbItem);
+        if(itemId) {
+            ajaxPost('api/apiItemController/get', {id:itemId}, function(data){
+                if(data.success) {
+                    var item = data.obj;
+                    item.quantity = 1;
+                    CAMEL_ORDER_CONFIRM._buildItem(item);
                 }
                 CAMEL_ORDER_CONFIRM._totalPrice();
-            }
-            $.hideLoadMore();
-        });
+                $.hideLoadMore();
+            });
+        } else if(shoppingIds) {
+            ajaxPost('api/apiShoppingController/dataGrid', {page:1, rows:40, sort:'addtime', order:'desc'}, function(data){
+                if(data.success) {
+                    var result = data.obj;
+                    for (var i in result.rows) {
+                        var shopping = result.rows[i];
+                        if(Util.arrayContains(shoppingIds.split(','), shopping.id))
+                            shopping.mbItem.quantity = shopping.quantity;
+                        CAMEL_ORDER_CONFIRM._buildItem(shopping.mbItem);
+                    }
+                    CAMEL_ORDER_CONFIRM._totalPrice();
+                }
+                $.hideLoadMore();
+            });
+        }
+
     },
     _buildItem : function(mbItem) {
         var viewData = Util.cloneJson(mbItem);
