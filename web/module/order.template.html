@@ -1,4 +1,4 @@
-<!--订单商品列表-->
+<!--订单商品列表1-->
 <li id="order_item_template" class=" ui-order-list" style="display: none;">
 	<div class="ui-col ui-icon">
 		<i class="ui-img-cover" style="background-image: url(../images/test/test1.jpg);"></i>
@@ -22,6 +22,23 @@
 		</div>
 	</div>
 </li>
+<!--订单商品列表2-->
+<div id="order_item2_template" class="ui-order-list" style="display: none;">
+	<div class="ui-col ui-icon">
+		<i class="ui-img-cover"></i>
+	</div>
+	<div class="ui-col ui-text">
+		<h3 name="item" data-name="name"></h3>
+		<h4><span>330ml*24灌</span>/<span name="item" data-name="quantityUnitName"></span></h4>
+		<div class="bot">
+			<del name="marketPrice"></del>
+			<p>合同价<span name="contractPrice"></span></p>
+		</div>
+	</div>
+	<div class="ui-col ui-num ui-row-flex ui-flex-align-end ui-flex-pack-end">
+		数量x<span name="quantity"></span>
+	</div>
+</div>
 
 <!-- 配送方式 -->
 <label id="dw_template" class="weui-cell weui-check__label" style="display: none;">
@@ -33,6 +50,25 @@
 		<span class="weui-icon-checked"></span>
 	</div>
 </label>
+
+
+<li id="order_list_template" style="display: none;">
+	<div class="order-list-title">
+		<img src="../images/order_status_0.png" name="statusIcon"/>
+		<div class="order-list-title-text">
+			订单号：<span name="id"></span>
+		</div>
+	</div>
+	<div class="order-item-list"></div>
+	<div class="ui-order-list-bottm">
+		<p>共<span name="itemCount">2</span>件商品<b>合计</b><i name="totalPrice">￥1.00</i></p>
+		<div class="ui-order-list-btn">
+			<a class="cancel">取消订单</a>
+			<a class="pay">去支付</a>
+			<a class="receipt">确认收货</a>
+		</div>
+	</div>
+</li>
 
 
 

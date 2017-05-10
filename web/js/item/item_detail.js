@@ -2,8 +2,6 @@
 var itemId = GetRequest('itemId');
 var quantity = null;
 $(function(){
-    $.hideLoadMore();
-
     init();
     $('.add').click(function(){
         if(quantity <= 0) {
@@ -53,6 +51,8 @@ function init() {
             }
 
         }
+
+        $.hideLoadMore();
     });
 }
 

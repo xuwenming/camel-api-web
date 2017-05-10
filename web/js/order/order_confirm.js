@@ -149,7 +149,7 @@ var CAMEL_ORDER_CONFIRM = {
             if(itemId) {
                 num = $(this).find('.ui-btn div[name=quantity]').text();
             } else if(shoppingIds) {
-                num = $(this).find('.ui-num div[name=quantity]').text();
+                num = $(this).find('.ui-num span[name=quantity]').text();
             }
             return $(this).find('[name=contractPrice]').text().substr(1)*100*num;
         }).get().join('+');
@@ -248,7 +248,7 @@ var CAMEL_ORDER_CONFIRM = {
             if(itemId) {
                 quantity = $(this).find('.ui-btn div[name=quantity]').text();
             } else if(shoppingIds) {
-                quantity = $(this).find('.ui-num div[name=quantity]').text();
+                quantity = $(this).find('.ui-num span[name=quantity]').text();
             }
             var item = {
                 itemId : item_id,

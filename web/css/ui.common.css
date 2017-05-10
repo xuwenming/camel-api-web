@@ -484,13 +484,13 @@
 	color: #fff;
 }
 
-.ui-order-list-btn a.pay{
+.ui-order-list-btn a.pay, .ui-order-list-btn a.receipt{
 	background-color: #fe9900;
 	border: 1px solid #FE9900;
 	color: #fff;
 }
 
-.ui-order-list-btn a.pay:active{
+.ui-order-list-btn a.pay:active, .ui-order-list-btn a.receipt:active{
 	background-color: rgba(254,153,0,0.6);
 }
 
@@ -597,4 +597,13 @@
 	height:70px;
 	margin:20px 0 5px 0;
 	display: inline;
+}
+
+.mask-layer{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index: 1001;
 }
