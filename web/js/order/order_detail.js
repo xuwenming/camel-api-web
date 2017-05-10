@@ -89,7 +89,7 @@ function _cancelOrder(event) {
     $.confirm("确认要取消订单吗?", "系统提示", function() {
         ajaxPost('api/apiOrderController/delete', {id:event.data}, function(data){
             if(data.success) {
-                window.location.href = '../order/index.html';
+                window.location.replace('../order/index.html');
             }
         });
     });
