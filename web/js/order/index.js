@@ -1,7 +1,14 @@
 /**
  * Created by snow on 17/5/3.
  */
-var loading = true, currPage = 1, rows = 10;
+var loading = true, currPage = 1, rows = 10, tabIndex = GetRequest('tabIndex') || 0;
+var statusIcon = {
+    OD01 : "../images/order_status_1.png",
+    OD05 : "../images/order_status_10.png",
+    OD10 : "../images/order_status_10.png",
+    OD20 : "../images/order_status_20.png",
+    OD30 : "../images/order_status_30.png"
+};
 $(function () {
     CAMEL_ORDER.init();
 });
@@ -16,6 +23,8 @@ var CAMEL_ORDER = {
                 CAMEL_ORDER._getOrderList($('#statusTabs div:has(a.active)').index());
             }, 200);
         });
+
+        $('#statusTabs div:eq('+tabIndex+') a').addClass('active');
         CAMEL_ORDER._getOrderList();
     },
     _bindEvent : function() {
@@ -23,15 +32,14 @@ var CAMEL_ORDER = {
             $('#statusTabs a.active').removeClass('active');
             $(this).find('a').addClass('active');
             $('.mask-layer').show();
-            var tabIndex = $(this).index();
+            tabIndex = $(this).index();
             currPage = 1;
             $(".order-list").empty();
             $.showLoadMore();
-            CAMEL_ORDER._getOrderList(tabIndex);
+            CAMEL_ORDER._getOrderList();
         });
     },
-    _getOrderList : function(tabIndex) {
-        tabIndex = tabIndex || 0;
+    _getOrderList : function() {
         var params = {page:currPage, rows:rows, sort:'addtime', order:'desc'};
         if(tabIndex == 0)
             params.status = 'OD01'; // 待支付
@@ -73,16 +81,11 @@ var CAMEL_ORDER = {
     _buildOrder: function (order) {
         var viewData = Util.cloneJson(order), btnHtml = '';
         if(order.status == 'OD01') {
-            viewData.statusIcon = '../images/order_status_1.png';
             btnHtml = '<a class="cancel">取消订单</a><a class="pay">去支付</a>';
-        } else if(order.status == 'OD10' || order.status == 'OD05') {
-            viewData.statusIcon = '../images/order_status_0.png';
         } else if(order.status == 'OD20') {
-            //viewData.statusIcon = '../images/order_status_0.png';
             btnHtml = '<a class="receipt">确认收货</a>';
-        } else if(order.status == 'OD30') {
-            viewData.statusIcon = '../images/order_status_2.png';
         }
+        viewData.statusIcon = statusIcon[order.status];
 
         viewData.itemCount = !order.mbOrderItemList ? 0 :order.mbOrderItemList.length;
         viewData.totalPrice = '￥' + Util.fenToYuan(order.totalPrice);
@@ -90,7 +93,7 @@ var CAMEL_ORDER = {
         $('.order-list').append(dom);
 
         dom.children(':not(.ui-order-list-bottm)').click(order.id, function(event){
-            window.location.href = '../order/order_detail.html?orderId=' + event.data;
+            window.location.href = '../order/order_detail.html?orderId=' + event.data + '&tabIndex=' + tabIndex;
         });
 
         CAMEL_ORDER._drawItem(dom.find('.order-item-list'), order.mbOrderItemList);

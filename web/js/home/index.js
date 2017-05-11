@@ -93,7 +93,7 @@ var CAMEL_HOME = {
             }
             ajaxPost('api/apiShoppingController/add', {itemId : event.data.id, quantity : 1}, function(data){
                 if(data.success) {
-                    $.toast("加入购物车成功", 1000);
+                    $.toast("加入购物车成功", 1500);
                 }
             });
         });

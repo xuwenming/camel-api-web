@@ -2,8 +2,20 @@
  * Created by snow on 17/5/3.
  */
 var orderId = GetRequest('orderId');
+var tabIndex = GetRequest('tabIndex') || 0;
+var statusIcon = {
+    OD01 : "../images/order_status_1.png",
+    OD05 : "../images/order_status_10.png",
+    OD10 : "../images/order_status_10.png",
+    OD20 : "../images/order_status_20.png",
+    OD30 : "../images/order_status_30.png"
+};
 $(function () {
     init();
+
+    $('.backBtn').click(function(){
+        window.location.href='../order/index.html?tabIndex=' + tabIndex;
+    });
 });
 
 function init() {
@@ -12,16 +24,11 @@ function init() {
         if(data.success) {
             var order = data.obj, btnHtml = '';
             if(order.status == 'OD01') {
-                $('.statusIcon').attr('src', '../images/order_status_1.png');
-                btnHtml = '<a class="border doCancel">取消订单</a><a class="solid doPay">去支付</a>';
-            } else if(order.status == 'OD10' || order.status == 'OD05') {
-                $('.statusIcon').attr('src', '../images/order_status_0.png');
+                btnHtml = '<a class="border doCancel">取消订单</><a class="solid doPay">去支付</a>';
             } else if(order.status == 'OD20') {
-                $('.statusIcon').attr('src', '../images/order_status_3.png');
                 btnHtml = '<a class="solid doReceipt">确认收货</a>';
-            } else if(order.status == 'OD30') {
-                $('.statusIcon').attr('src', '../images/order_status_2.png');
             }
+            $('.statusIcon').attr('src', statusIcon[order.status]);
 
             $('.orderId').html(order.id);
             console.log(order.mbOrderItemList);
@@ -35,11 +42,16 @@ function init() {
             $('.userRemark').html(order.userRemark);
 
             if(order.invoiceWay == 'IW02') {
-                $('#companyName').val(order.companyName);
-                $('#companyTfn').val(order.companyTfn);
-                $('#bankName').val(order.bankName);
-                $('#bankNumber').val(order.bankNumber);
-                $('#invoiceUse').val(order.invoiceUse);
+                $('.order-mess li:not(:first)').addClass('ui-row-flex').show();
+                var invoice = order.mbOrderInvoice;
+                if(invoice) {
+                    $('#companyName').val(invoice.companyName);
+                    $('#companyTfn').val(invoice.companyTfn);
+                    $('#bankName').val(invoice.bankName);
+                    $('#bankNumber').val(invoice.bankNumber);
+                    $('#invoiceUse').val(invoice.invoiceUse);
+                }
+
             } else {
                 $('.invoice-title').append('（' + order.invoiceWayName + '）');
             }
@@ -104,7 +116,7 @@ function _receipt(event) {
     $.confirm("确认收货交易将完成，您是否确认?", "系统提示", function() {
         ajaxPost('api/apiOrderController/receipt', {id:event.data}, function(data){
             if(data.success) {
-                $('.statusIcon').attr('src', '../images/order_status_2.png');
+                $('.statusIcon').attr('src', statusIcon['OD30']);
                 $('.btns').find('.doReceipt').remove();
             }
         });
