@@ -31,7 +31,6 @@ function init() {
             $('.statusIcon').attr('src', statusIcon[order.status]);
 
             $('.orderId').html(order.id);
-            console.log(order.mbOrderItemList);
             drawItem(order.mbOrderItemList);
 
             var contactPhone = order.contactPhone.substr(0, 3) + '****' + order.contactPhone.substr(order.contactPhone.length - 4);
@@ -45,11 +44,11 @@ function init() {
                 $('.order-mess li:not(:first)').addClass('ui-row-flex').show();
                 var invoice = order.mbOrderInvoice;
                 if(invoice) {
-                    $('#companyName').val(invoice.companyName);
-                    $('#companyTfn').val(invoice.companyTfn);
-                    $('#bankName').val(invoice.bankName);
-                    $('#bankNumber').val(invoice.bankNumber);
-                    $('#invoiceUse').val(invoice.invoiceUse);
+                    $('#companyName').html(invoice.companyName);
+                    $('#companyTfn').html(invoice.companyTfn);
+                    $('#bankName').html(invoice.bankName);
+                    $('#bankNumber').html(invoice.bankNumber);
+                    $('#invoiceUse').html(invoice.invoiceUse);
                 }
 
             } else {
