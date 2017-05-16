@@ -19,35 +19,27 @@ $(function () {
 });
 
 function pay() {
-    var payWay = $('.pay-list li i.on').closest('li').attr('data-pay-way');
-    if(payWay == 'wx') {
+    var index = $('.pay-list li i.on').closest('li').index();
+    if(index == 0) {
         if(getDevice() != 'Android' && getDevice() != 'iOS') {
-            $.alert("请在手机微信内打开进行支付！", "系统提示！");
+            $.alert("请在手机微信内打开订单，进行支付！", "系统提示！");
             return;
         }
         amount = 1; // TODO 测试专用
-        var params = {amount:amount}; // 微信支付
-        if(orderId) { // 订单支付
-            params = $.extend(params, {orderId:orderId, payWay:'PW02', orderType : 'OT01'});
-        } else { // 钱包充值
-            params = $.extend(params, {refType:'BT001'});
-        }
+        var params = {amount:amount, orderId:orderId, payWay:'PW02', orderType : 'OT01'}; // 微信支付
         if(isWeiXin()) {
             params.trade_type = 'JSAPI';
             wxPayCall(params, function(){
                 $.toast("支付成功", function(){
-                    if(orderId)
-                        window.location.replace('../order/order_detail.html?orderId=' + orderId);
-                    else
-                        window.location.replace('../balance/index.html');
+                    window.location.replace('../order/order_detail.html?orderId=' + orderId);
                 });
             }, function(){
                 // 跳转订单详情
-                if(orderId) window.location.replace('../order/order_detail.html?orderId=' + orderId);
+                window.location.replace('../order/order_detail.html?orderId=' + orderId);
             });
         } else {
             //params.trade_type = 'MWEB'; 暂不支持微信外支付
-            $.alert("请在手机微信内打开进行支付！", "系统提示！");
+            $.alert("请在手机微信内打开订单，进行支付！", "系统提示！");
         }
     } else {
 

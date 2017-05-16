@@ -5,7 +5,7 @@ $(function(){
         ajaxPostSync('api/apiCommon/validToken', {}, function(data){
             if(!data.success && data.obj == 'token_expire') {
                 tokenId = null;
-                $.cookie('tokenId', tokenId);
+                $.cookie('camel_tokenId', tokenId);
             }
         });
 
@@ -18,11 +18,11 @@ $(function(){
             } else {
                 // TODO 非微信浏览器，暂不做其他操作
                 $.showContent();
-                $.cookie('tokenId', '123456789', {expires:12*60*60*1000, path:'/'});
+                $.cookie('camel_tokenId', '123456789', {expires:12*60*60*1000, path:'/'});
                 return;
             }
         } else {
-            $.cookie('tokenId', tokenId, {expires:12*60*60*1000, path:'/'});
+            $.cookie('camel_tokenId', tokenId, {expires:12*60*60*1000, path:'/'});
         }
     }
     // 判断是否绑定手机号

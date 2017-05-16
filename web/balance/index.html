@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的钱包</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">我的钱包</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="balance_content">
+    <div class="wallet-header">
+        <img src="../images/mine-1.png" />
+        <p>￥160.00</p>
+        <a href="../balance/recharge.html" class="ui-row-flex ui-flex-align-center ui-flex-pack-center ripple">充值</a>
+    </div>
+
+    <ul class="wallet-list">
+        <li class="list-line ui-row-flex">
+            <div class="ui-col">
+                <h3>后台录入</h3>
+                <p>2017-05-01 20:20</p>
+            </div>
+            <div class="ui-col rg ui-row-flex ui-flex-align-center ui-flex-pack-end">+3500元</div>
+        </li>
+        <li class="list-line ui-row-flex">
+            <div class="ui-col">
+                <h3>后台录入</h3>
+                <p>2017-05-01 20:20</p>
+            </div>
+            <div class="ui-col rg ui-row-flex ui-flex-align-center ui-flex-pack-end">-230元</div>
+        </li>
+        <li class="list-line ui-row-flex">
+            <div class="ui-col">
+                <h3>后台录入</h3>
+                <p>2017-05-01 20:20</p>
+            </div>
+            <div class="ui-col rg ui-row-flex ui-flex-align-center ui-flex-pack-end">-230元</div>
+        </li>
+    </ul>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.mine.wallet.css', 'js/balance/index.js']);
+</script>
+</body>
+</html>

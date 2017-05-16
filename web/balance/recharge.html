@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>充值</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">充值</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="recharge_content">
+    <div class="input">
+        <input type="tel" placeholder="请输入充值金额" id="amount"/>
+    </div>
+
+    <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple recharge-btn">下一步</a>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.mine.pay.css', 'js/balance/recharge.js']);
+</script>
+</body>
+</html>

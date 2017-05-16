@@ -88,7 +88,7 @@ function replace(url) {
 
 // TODO tokenId从cookie中取,测试tokenId:123456789 正式环境去除
 function getTokenId() {
-    var tokenId = $.cookie('tokenId');
+    var tokenId = $.cookie('camel_tokenId');
     return tokenId;
 }
 
