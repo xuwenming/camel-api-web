@@ -35,6 +35,7 @@
      * */
     $.include([
         'js/jquery-weui.min.js',
+        'js/md5.min.js',
         'js/swiper.min.js',
         'js/common.js',
         'js/extJquery.js',

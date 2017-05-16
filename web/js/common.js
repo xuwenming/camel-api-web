@@ -1,5 +1,5 @@
 var server_url = 'http://www.mobiang.com/camel/'; // 服务器api接口地址
-//var server_url = 'http://localhost:8082/'; // 测试本地api接口地址
+//var server_url = 'http://192.168.1.106:8082/'; // 测试本地api接口地址
 
 function ajaxPost(url, parameter, success,beforeSend,time) {
     if(!url) return;
@@ -8,9 +8,22 @@ function ajaxPost(url, parameter, success,beforeSend,time) {
         url: getUrl(url),
         data: parameter,
         dataType:"json",
-        beforeSend:function(){
+        beforeSend:function(request){
             if(beforeSend)
                 beforeSend();
+
+            var params = '';
+            if(parameter)
+                for(var key in parameter) {
+                    if(params != '') params += "&";
+                    params += key + "=" + parameter[key];
+                }
+            if(params)
+                params = 'tokenId=' + getTokenId() + "&" + params + getTokenId();
+            else
+                params = 'tokenId=' + getTokenId() + getTokenId();
+
+            request.setRequestHeader("sign", md5(params));
         },
         success:function (data) {
             if(success)
@@ -34,9 +47,22 @@ function ajaxPostSync(url, parameter, success,beforeSend,time) {
         data: parameter,
         dataType:"json",
         async : false,
-        beforeSend:function(){
+        beforeSend:function(request){
             if(beforeSend)
                 beforeSend();
+
+            var params = '';
+            if(parameter)
+                for(var key in parameter) {
+                    if(params != '') params += "&";
+                    params += key + "=" + parameter[key];
+                }
+            if(params)
+                params = 'tokenId=' + getTokenId() + "&" + params + getTokenId();
+            else
+                params = 'tokenId=' + getTokenId() + getTokenId();
+
+            request.setRequestHeader("sign", md5(params));
         },
         success:function (data) {
             if(success)
@@ -60,11 +86,16 @@ function replace(url) {
     window.location.replace(getUrl(url));
 }
 
-// TODO tokenId从cookie中取,测试tokenId:1D96DACB84F21890ED9F4928FA8B352B 正式环境去除
+// TODO tokenId从cookie中取,测试tokenId:123456789 正式环境去除
+function getTokenId() {
+    var tokenId = $.cookie('tokenId');
+    return tokenId;
+}
+
 function getUrl(url) {
     var index = url.indexOf("api");
     if(index != 0) url = url.substring(index);
-    var tokenId = $.cookie('tokenId'), _url = server_url + url;
+    var tokenId = getTokenId(), _url = server_url + url;
     if(tokenId)
         _url += (url.indexOf("?") == -1 ? "?" : "&") + "tokenId=" + tokenId;
     return _url;
