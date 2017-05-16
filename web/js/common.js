@@ -300,9 +300,15 @@ Util.fenToYuan = function(fen) {
     if (!yuan) {
         return "0.00";
     }
-    yuan = yuan.toString()
-    var before = yuan.substr(0, yuan.length - 2);
-    var end = yuan.substr(yuan.length - 2, 2);
+    yuan = yuan.toString();
+    var len = yuan.length;
+    var before = len > 2 ? yuan.substr(0, yuan.length - 2) : '0';
+    var end;
+    if(len == 1) {
+        end = "0" + yuan;
+    } else {
+        end = yuan.substr(yuan.length - 2, 2);
+    }
     yuan = before + "." + end;
     var re = /(-?\d+)(\d{3})/;
     while (re.test(yuan)) {
