@@ -1,8 +1,15 @@
 /**
  * Created by snow on 17/5/5.
  */
-var time = 59;
+var time = 59, editable = GetRequest('editable') || 0;
 $(function () {
+    if(editable == 1) {
+        document.title = '修改手机号';
+        $('.editable').addClass('ui-row-flex').show();
+        $('.header-name').html('修改手机号');
+    } else {
+
+    }
     $.hideLoadMore();
     $('#vcode-btn').bind('click', getValidateCode);
     $('#bindPhone-btn').bind('click', bindPhone);

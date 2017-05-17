@@ -17,12 +17,12 @@
 <div class="balance_content">
     <div class="wallet-header">
         <img src="../images/mine-1.png" />
-        <p>￥160.00</p>
+        <p class="balanceAmount">￥0.00</p>
         <a href="../balance/recharge.html" class="ui-row-flex ui-flex-align-center ui-flex-pack-center ripple">充值</a>
     </div>
 
     <ul class="wallet-list">
-        <li class="list-line ui-row-flex">
+        <!--<li class="list-line ui-row-flex">
             <div class="ui-col">
                 <h3>后台录入</h3>
                 <p>2017-05-01 20:20</p>
@@ -42,11 +42,17 @@
                 <p>2017-05-01 20:20</p>
             </div>
             <div class="ui-col rg ui-row-flex ui-flex-align-center ui-flex-pack-end">-230元</div>
-        </li>
+        </li>-->
     </ul>
+
+    <div class="weui-loadmore">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载中...</span>
+    </div>
 </div>
 
 <div class="include header" data-src="../module/header.html"></div>
+<div class="include" data-src="../module/balance.template.html"></div>
 
 <script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>

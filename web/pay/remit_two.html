@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>提交汇款信息</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">提交汇款信息</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="remit_two_content">
+    <div class="remit-title">
+        <p>1.金额：请填写汇款的实际金额，如果银行那边有手续费请填写扣除后的金额</p>
+        <p class="pd">2.时间：请填写汇款日期</p>
+        <p class="pd">3.在您汇款信息提交后，我们将在24小时内处理，法定节假日48小时处理完成</p>
+    </div>
+
+    <ul class="remit-form">
+        <li class="ui-row-flex list-line-bl">
+            <div class="ui-col title ui-row-flex ui-flex-align-center">汇款人</div>
+            <div class="ui-col">
+                <input type="text" placeholder="请输入汇款人"/>
+            </div>
+        </li>
+        <li class="ui-row-flex list-line-bl">
+            <div class="ui-col title ui-row-flex ui-flex-align-center">金额</div>
+            <div class="ui-col">
+                <input type="tel" placeholder="请输入汇款金额"/>
+            </div>
+        </li>
+        <li class="ui-row-flex list-line-bl">
+            <div class="ui-col title ui-row-flex ui-flex-align-center">日期</div>
+            <div class="ui-col">
+                <input type="text" id="time" placeholder="请选择汇款日期"/>
+            </div>
+        </li>
+        <li class="ui-row-flex list-line-bl">
+            <div class="ui-col title ui-row-flex ui-flex-align-center">备注</div>
+            <div class="ui-col">
+                <input type="text" placeholder="请输入备注"/>
+            </div>
+        </li>
+    </ul>
+
+    <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple">提交</a>
+    <p class="bottom-text">此单仅用于财务核对，不会自动从银行扣款</p>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.remit.css', 'js/pay/remit_two.js']);
+</script>
+</body>
+</html>

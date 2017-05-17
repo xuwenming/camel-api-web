@@ -49,8 +49,12 @@ function pay() {
             //params.trade_type = 'MWEB'; 暂不支持微信外支付
             $.alert("请在手机微信内打开进行支付！", "系统提示！");
         }
-    } else {
+    } else if(payWay == 'ye') {
 
+    } else if(payWay == 'zz') {
+        var url = '../pay/remit_one.html?amount=' + amount;
+        if(orderId) url += '&orderId=' + orderId;
+        window.location.href = url;
     }
 
 }

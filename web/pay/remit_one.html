@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>转账汇款信息</title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">转账汇款信息</div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="remit_one_content">
+    <div class="remit-title">
+        <p>1.请汇款至如下账号</p>
+        <p class="pd">2.汇款后请输入真实汇款信息</p>
+    </div>
+
+    <ul class="remit-list">
+        <li>
+            <div class="ui-row-flex">
+                <div class="ui-col bank">
+                    <img class="bank_icon"/>
+                </div>
+                <div class="ui-col bank-name ui-row-flex ui-flex-align-center bank_name"></div>
+                <div class="ui-col check ui-row-flex ui-flex-align-center">
+                    <i class="ui-img-cover active"></i>
+                </div>
+            </div>
+            <div class="ui-row-flex bot">
+                <div class="ui-col bank_card_no"></div>
+                <div class="ui-col ui-row-flex ui-flex-pack-end">储蓄卡</div>
+            </div>
+            <div class="ui-row-flex">
+                <div class="ui-col user_name"></div>
+            </div>
+        </li>
+    </ul>
+
+    <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple next-btn">下一步</a>
+    <p class="bottom-text">我们收到您的汇款后会在1-2个工作日处理</p>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.remit.css', 'js/pay/remit_one.js']);
+</script>
+</body>
+</html>
