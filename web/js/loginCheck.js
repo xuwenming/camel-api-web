@@ -1,5 +1,5 @@
 $(function(){
-    var tokenId = $.cookie('tokenId');
+    var tokenId = $.cookie('camel_tokenId');
     // 验证tokenId是否有效
     if(tokenId)
         ajaxPostSync('api/apiCommon/validToken', {}, function(data){
