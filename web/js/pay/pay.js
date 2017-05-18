@@ -41,7 +41,7 @@ function pay() {
             $.alert("请在手机微信内打开进行支付！", "系统提示！");
             return;
         }
-        amount = 1; // TODO 测试专用
+       // amount = 1; // TODO 测试专用
         var params = {amount:amount}; // 微信支付
         if(orderId) { // 订单支付
             params = $.extend(params, {orderId:orderId, payWay:'PW02', orderType : 'OT01'});

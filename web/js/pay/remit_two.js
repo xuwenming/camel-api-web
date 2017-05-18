@@ -51,6 +51,19 @@ function transfer() {
         }, function(){
             $.loading.load({type:2, msg:'提交中...'});
         }, -1);
+    else
+        ajaxPost('api/apiBalanceController/balanceRemit', {amount:amount*100,remitter:remitter,remitterTimeStr:$('#remitterTime').val(),content:remark}, function(data){
+            $.loading.close();
+            if(data.success) {
+                $.alert('提交成功！请耐心等待审核','系统提示', function(){
+                    window.location.replace('../ucenter/index.html');
+                });
+            } else {
+                $.alert(data.msg,'系统提示');
+            }
+        }, function(){
+            $.loading.load({type:2, msg:'提交中...'});
+        }, -1);
 }
 
 
