@@ -154,7 +154,11 @@ var CAMEL_HOME = {
         return dom;
     },
     search : function() {
-        var q = $("#searchInp").val();
+        var q = $.trim($("#searchInp").val());
+        if(Util.checkEmpty(q)) {
+            $("#searchInp").focus();
+            return;
+        }
         $('.searchContent .txt, .searchList').empty();
         $("#searchInp").val('');
         window.location.href = '../home/search.html?q=' + q;
