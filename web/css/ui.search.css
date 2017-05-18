@@ -46,3 +46,10 @@
 	padding: 14px 14px;
 	background-color: #f2f2f2;
 }
+
+.ui-search .searchContent .searchRes .title .delete {
+	float: right;
+	width: 30px;
+	text-align: center;
+	display: none;
+}

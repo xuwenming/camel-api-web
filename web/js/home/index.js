@@ -23,18 +23,40 @@ var CAMEL_HOME = {
             $('body').css('overflow', 'hidden');
             $('.ui-search-mask, .ui-search').show();
             $("#searchInp").focus();
+
+            var searchValue = $.trim($("#searchInp").val()),searchHistory = CAMEL_HOME.getSearchHistory();
+            if(Util.checkEmpty(searchValue) && searchHistory.length != 0) {
+                $('.searchContent .txt').html('最近搜索');
+                $('.searchContent .delete').show();
+                $('.searchList').empty();
+                for(var i in searchHistory) {
+                    $('.searchList').append('<div class="item his">'+searchHistory[i]+'</div>');
+                }
+            }
         });
         $('#searchCancel').click(function(){
             $('body').css('overflow', 'auto');
             $('.ui-search-mask, .ui-search').hide();
             $('.searchContent .txt, .searchList').empty();
             $("#searchInp").val('');
+
         });
 
         $("#searchInp").bind("input propertychange", function() {
-            var searchValue = $.trim($(this).val());
+            var searchValue = $.trim($(this).val()),searchHistory = CAMEL_HOME.getSearchHistory();
             if(Util.checkEmpty(searchValue)) {
-                $('.searchContent .txt, .searchList').empty();
+                if(searchHistory.length == 0) {
+                    $('.searchContent .txt, .searchList').empty();
+                    $('.searchContent .delete').hide();
+                } else {
+                    $('.searchContent .txt').html('最近搜索');
+                    $('.searchContent .delete').show();
+                    $('.searchList').empty();
+                    for(var i in searchHistory) {
+                        $('.searchList').append('<div class="item his">'+searchHistory[i]+'</div>');
+                    }
+                }
+
                 return;
             }
 
@@ -42,9 +64,20 @@ var CAMEL_HOME = {
                 if(data.success) {
                     var result = data.obj;
                     if(result.length == 0) {
-                        $('.searchContent .txt, .searchList').empty();
+                        if(searchHistory.length == 0) {
+                            $('.searchContent .txt, .searchList').empty();
+                            $('.searchContent .delete').hide();
+                        } else {
+                            $('.searchContent .txt').html('最近搜索');
+                            $('.searchContent .delete').show();
+                            $('.searchList').empty();
+                            for(var i in searchHistory) {
+                                $('.searchList').append('<div class="item his">'+searchHistory[i]+'</div>');
+                            }
+                        }
                     } else {
                         $('.searchContent .txt').html('搜索发现');
+                        $('.searchContent .delete').hide();
                         $('.searchList').empty();
                         for(var i in result) {
                             var item = result[i];
@@ -57,10 +90,24 @@ var CAMEL_HOME = {
         });
 
         $('.searchList').on('click', '.item', function(){
-            $('.searchContent .txt, .searchList').empty();
-            $("#searchInp").val('');
-            window.location.href = '../item/item_detail.html?itemId=' + $(this).attr('code');
-        })
+            //$('.searchContent .txt, .searchList').empty();
+            //$("#searchInp").val('');
+            if($(this).hasClass('his')) {
+                $("#searchInp").val($(this).html());
+                CAMEL_HOME.search();
+            } else {
+                CAMEL_HOME.setSearchHistory($(this).html());
+                window.location.href = '../item/item_detail.html?itemId=' + $(this).attr('code');
+            }
+
+        });
+        $('.searchContent .delete').bind('click', function(){
+            if(window.localStorage) {
+                window.localStorage.removeItem('searchHistory');
+                $('.searchContent .txt, .searchList').empty();
+                $('.searchContent .delete').hide();
+            }
+        });
     },
     _getItemCategory : function() {
         ajaxPost('api/apiItemCategoryController/dataGrid', {page:1, rows:4, sort:'seq', order:'asc'}, function(data){
@@ -159,9 +206,30 @@ var CAMEL_HOME = {
             $("#searchInp").focus();
             return;
         }
-        $('.searchContent .txt, .searchList').empty();
-        $("#searchInp").val('');
+        CAMEL_HOME.setSearchHistory(q);
+        //$('.searchContent .txt, .searchList').empty();
+        //$("#searchInp").val('');
         window.location.href = '../home/search.html?q=' + q;
+    },
+    setSearchHistory : function(value) {
+        if(window.localStorage) {
+            var searchHistory = window.localStorage.searchHistory;
+            if(searchHistory)
+                searchHistory = JSON.parse(searchHistory);
+            else
+                searchHistory = [];
+            Util.arrayRemove(searchHistory, value);
+            if(searchHistory.length == 10) searchHistory.pop();
+            searchHistory.unshift(value);
+            window.localStorage.searchHistory = JSON.stringify(searchHistory);
+        }
+    },
+    getSearchHistory : function() {
+        if(window.localStorage) {
+            var searchHistory = window.localStorage.searchHistory;
+            if(!searchHistory) return [];
+            return JSON.parse(searchHistory);
+        }
     }
 };
 
