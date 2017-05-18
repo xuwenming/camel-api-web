@@ -10,7 +10,7 @@
     <!--header-->
     <div class="ui-index-header">
         <div class="ui-index-header-con">
-            <input type="text" placeholder="搜索"/>
+            <input type="text" placeholder="搜索" readonly/>
             <a></a>
         </div>
     </div>
@@ -24,6 +24,42 @@
     <ul class="ui-index-list" id="itemList">
 
     </ul>
+
+    <div class="ui-search-mask" style="display: none"></div>
+    <div class="ui-search" style="display: none">
+        <div class="ui-index-header">
+            <div class="weui-search-bar__box ui-index-header-con" style="width: 90%;padding: 0px 10px;">
+                <i class="weui-icon-search" style="line-height: 34px;"></i>
+                <form action="javascript:CAMEL_HOME.search();">
+                    <input type="search" placeholder="搜索" id="searchInp"/>
+                </form>
+            </div>
+
+            <a id="searchCancel" style="display:block;position: absolute;right: 0px;top: 0;width: 10%; height:50px;line-height: 50px;color: #efefef;">取消</a>
+        </div>
+        <div class="searchContent">
+            <div class="searchRes">
+                <div class="title">
+                    <div class="txt"><!--搜索发现--></div>
+                    <!--<div class="delete">
+                        <i class="wptFi icon-delete"></i>
+                    </div>-->
+                </div>
+                <div class="searchList">
+                    <!--<div class="item keywords" type="category" code="10">砚台</div>
+                    <div class="item keywords" type="keywords" code="10_端砚">端砚</div>
+                    <div class="item keywords" type="keywords" code="10_高古砚">高古砚</div>
+                    <div class="item keywords" type="keywords" code="10_工艺砚">工艺砚</div>
+                    <div class="item keywords" type="keywords" code="10_歙砚">歙砚</div>
+                    <div class="item keywords" type="keywords" code="10_澄泥砚">澄泥砚</div>
+                    <div class="item keywords" type="keywords" code="10_现代砚">现代砚</div>
+                    <div class="item keywords" type="keywords" code="10_明清砚">明清砚</div>
+                    <div class="item keywords" type="keywords" code="10_地方石砚">地方石砚</div>
+                    <div class="item keywords" type="keywords" code="10_砖砚">砖砚</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="weui-loadmore">
     <i class="weui-loading"></i>
@@ -40,7 +76,7 @@
 <script type="text/javascript" src="../js/boot.js?v=20170516" charset="utf-8"></script>
 <!--我的页面业务代码-->
 <script type="text/javascript">
-    $.include(['css/ui.index.css', 'js/home/index.js']);
+    $.include(['css/ui.index.css','css/ui.search.css', 'js/home/index.js']);
 </script>
 </body>
 </html>

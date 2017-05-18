@@ -18,7 +18,49 @@ var CAMEL_HOME = {
 
     },
     _bindEvent : function() {
+        $('.ui-index-header-con').click(function(){
+            //window.location.href = '../home/search.html';
+            $('body').css('overflow', 'hidden');
+            $('.ui-search-mask, .ui-search').show();
+            $("#searchInp").focus();
+        });
+        $('#searchCancel').click(function(){
+            $('body').css('overflow', 'auto');
+            $('.ui-search-mask, .ui-search').hide();
+            $('.searchContent .txt, .searchList').empty();
+            $("#searchInp").val('');
+        });
 
+        $("#searchInp").bind("input propertychange", function() {
+            var searchValue = $.trim($(this).val());
+            if(Util.checkEmpty(searchValue)) {
+                $('.searchContent .txt, .searchList').empty();
+                return;
+            }
+
+            ajaxPost('api/apiItemController/getList', {name : searchValue}, function(data){
+                if(data.success) {
+                    var result = data.obj;
+                    if(result.length == 0) {
+                        $('.searchContent .txt, .searchList').empty();
+                    } else {
+                        $('.searchContent .txt').html('搜索发现');
+                        $('.searchList').empty();
+                        for(var i in result) {
+                            var item = result[i];
+                            $('.searchList').append('<div class="item" code="'+item.id+'">'+item.name+'</div>');
+                        }
+                    }
+
+                }
+            });
+        });
+
+        $('.searchList').on('click', '.item', function(){
+            $('.searchContent .txt, .searchList').empty();
+            $("#searchInp").val('');
+            window.location.href = '../item/item_detail.html?itemId=' + $(this).attr('code');
+        })
     },
     _getItemCategory : function() {
         ajaxPost('api/apiItemCategoryController/dataGrid', {page:1, rows:4, sort:'seq', order:'asc'}, function(data){
@@ -110,6 +152,12 @@ var CAMEL_HOME = {
             window.location.href = '../item/item_detail.html?itemId=' + event.data;
         });
         return dom;
+    },
+    search : function() {
+        var q = $("#searchInp").val();
+        $('.searchContent .txt, .searchList').empty();
+        $("#searchInp").val('');
+        window.location.href = '../home/search.html?q=' + q;
     }
 };
 

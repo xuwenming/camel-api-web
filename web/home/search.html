@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="display: none;">
+
+<div class="header ui-row-flex">
+    <div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+        <i class="ui-img-cover"></i>
+    </div>
+    <div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name"></div>
+    <div class="ui-col header-icon"></div>
+</div>
+
+<div class="search_content" style="margin-top: 55px;">
+    <!--首页列表-->
+    <ul class="ui-index-list" id="itemList">
+    </ul>
+</div>
+<div class="weui-loadmore">
+    <i class="weui-loading"></i>
+    <span class="weui-loadmore__tips">正在加载中...</span>
+</div>
+
+<div class="include header" data-src="../module/header.html"></div>
+<div class="include" data-src="../module/home.template.html"></div>
+
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js?v=20170516" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+    $.include(['css/ui.index.css','js/home/search.js']);
+</script>
+</body>
+</html>

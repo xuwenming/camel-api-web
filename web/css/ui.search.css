@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+.ui-search-mask {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	z-index: 99995;
+	background-color: #FFF;
+}
+.ui-search {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 99998;
+	background-color: #FFF;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.ui-search .searchContent {
+	padding: 50px 15px 0;
+	height: 100%;
+	box-sizing: border-box;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.ui-search .searchContent .searchRes .title {
+	line-height: 40px;
+	font-size: 14px;
+	color: #888;
+	height: 40px;
+}
+.ui-search .searchContent .searchRes .title .txt {
+	float: left;
+}
+.ui-search .searchContent .searchRes .searchList .item {
+	float: left;
+	height: 0;
+	font-size: 14px;
+	cursor: pointer;
+	margin: 0 10px 10px 0;
+	line-height: 0;
+	border-radius: 3px;
+	padding: 14px 14px;
+	background-color: #f2f2f2;
+}
