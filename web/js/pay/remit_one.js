@@ -8,7 +8,9 @@ $(function () {
     init();
 
     $('.next-btn').click(function(){
-        window.location.href = '../pay/remit_two.html?amount=' + amount;
+        var url = '../pay/remit_two.html?amount=' + amount;
+        if(orderId) url += '&orderId=' + orderId;
+        window.location.href = url;
     });
 });
 

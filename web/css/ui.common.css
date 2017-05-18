@@ -211,7 +211,7 @@
 	background-color: #fff;
 	width: 100%;
 	box-shadow: 0 0 10px #ddd;
-	z-index: 999;
+	z-index: 9999;
 }
 
 .bottom .ui-col{

@@ -23,7 +23,7 @@ function ajaxPost(url, parameter, success,beforeSend,time) {
             else
                 params = 'tokenId=' + getTokenId() + getTokenId();
 
-            request.setRequestHeader("sign", md5(params));
+            request.setRequestHeader("sign", md5(encodeURIComponent(params)));
         },
         success:function (data) {
             if(success)
@@ -62,7 +62,7 @@ function ajaxPostSync(url, parameter, success,beforeSend,time) {
             else
                 params = 'tokenId=' + getTokenId() + getTokenId();
 
-            request.setRequestHeader("sign", md5(params));
+            request.setRequestHeader("sign", md5(encodeURIComponent(params)));
         },
         success:function (data) {
             if(success)

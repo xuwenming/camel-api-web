@@ -48,6 +48,29 @@
 
         <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple" id="payBtn">安全支付</a>
 
+        <div id="balancePayPopup" class="weui-popup__container popup-bottom" style="background: rgba(0,0,0,.6);">
+            <div class="weui-popup__overlay"></div>
+            <div class="weui-popup__modal" style="height: 300px;">
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <a href="javascript:;" class="picker-button close-popup" style="color: #e64340;">关闭</a>
+                        <h1 class="title">支付验证</h1>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div style="margin-top: 30px; background-color: #fff;">
+                        <div class="form-group list-line">
+                            <input type="tel" class="form-control" placeholder="请输入验证码"  id="vcode"/>
+                            <a class="ui-row-flex ui-flex-align-center ui-flex-pack-center" id="vcode-btn">获取验证码</a>
+                        </div>
+                    </div>
+
+
+                    <a class="btn ui-row-flex ui-flex-align-center ui-flex-pack-center ripple" style="margin-top: 60px;" id="balancePay">安全支付</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -57,7 +80,7 @@
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
 <!--我的页面业务代码-->
 <script type="text/javascript">
-    $.include(['css/ui.pay.css', 'js/pay/pay.js']);
+    $.include(['css/ui.register.css', 'css/ui.pay.css', 'js/pay/pay.js']);
 </script>
 </body>
 </html>
