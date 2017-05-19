@@ -31,7 +31,7 @@ var CAMEL_SHOPPING = {
 
         $('.clear-btn').click(function(){
             if($('.ui-select span.selected').length == 0) {
-                $.toast("您还没有选择商品哦", "text");
+                $.toast("<font size='3pt;'>您还没有选择商品哦</font>", "text");
                 return;
             }
             var shoppingIds = $('.ui-select span.selected').map(function(){
@@ -93,7 +93,7 @@ var CAMEL_SHOPPING = {
         dom.find('.add').click(shopping, function(event){
             var $li = $(this).closest('li'), num = parseInt($li.find('[name=quantity]').text());
             if(num == shopping.mbItem.quantity) {
-                $.toast("亲，不能购买更多哦", "text");
+                $.toast("<font size='3pt;'>亲，不能购买更多哦</font>", "text");
                 return;
             }
             $.showLoading('正在加载');

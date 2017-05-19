@@ -126,7 +126,7 @@ var CAMEL_ORDER_CONFIRM = {
             dom.find('.add').click(mbItem.quantitys, function(event){
                 var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn div[name=quantity]').text());
                 if(num == event.data) {
-                    $.toast("亲，不能购买更多哦", "text");
+                    $.toast("<font size='3pt;'>亲，不能购买更多哦</font>", "text");
                     return;
                 }
                 $.showLoading('正在加载');
@@ -154,15 +154,20 @@ var CAMEL_ORDER_CONFIRM = {
             }
             return $(this).find('[name=contractPrice]').text().substr(1)*100*num;
         }).get().join('+');
-        $('.totalPrice').html('￥' + Util.fenToYuan(eval(totalPrice)));
 
-        $('#totalPrice').val(eval(totalPrice));
+        var deliveryFee = parseInt($('#deliveryFee').val());
+        totalPrice = eval(totalPrice) || 0;
+        // TODO 暂时不计算运费
+        //totalPrice = totalPrice + deliveryFee;
+        $('.totalPrice').html('￥' + Util.fenToYuan(totalPrice));
+        $('#totalPrice').val(totalPrice);
     },
     _initDeliveryWay : function() {
         ajaxPost('api/apiBaseDataController/basedata', {dataType:'DW'}, function(data){
             if(data.success) {
                 var result = data.obj;
                 for (var i in result) {
+                    if(result[i].id == 'DW03') continue;
                     CAMEL_ORDER_CONFIRM._buildDeliveryWay(result[i]);
                 }
             }
@@ -195,13 +200,25 @@ var CAMEL_ORDER_CONFIRM = {
     },
     _buildDeliveryWay : function(deliveryWay) {
         var viewData = Util.cloneJson(deliveryWay);
+        //if(deliveryWay.description)
+        //    viewData.name = deliveryWay.name + " - " + '￥' + Util.fenToYuan(parseInt(deliveryWay.description)*100);
         var dom = Util.cloneDom("dw_template", deliveryWay, viewData);
         $("#dw").append(dom);
 
         dom.click(deliveryWay, function(event){
             $('.deliveryWay').html(event.data.name);
             $('#deliveryWay').val(event.data.id);
+            if(event.data.id == 'DW02' && event.data.description) {
+                var deliveryFee = parseInt(deliveryWay.description)*100;
+                $('#deliveryFee').val(deliveryFee);
+                //$('.fee').html('￥' + Util.fenToYuan(deliveryFee));
+            } else {
+                $('#deliveryFee').val(0);
+                $('.fee').empty();
+            }
+            CAMEL_ORDER_CONFIRM._totalPrice();
             $.closePopup();
+
         });
         if(deliveryWay.id == 'DW02') dom.click();
         return dom;
@@ -247,7 +264,7 @@ var CAMEL_ORDER_CONFIRM = {
                 if(!$(this).is(":hidden")&&Util.checkEmpty($(this).val())) {
                     flag = false;
                     var msg = $(this).parent().prev().text();
-                    $.toast("请输入" + msg, "text");
+                    $.toast("<font size='3pt;'>请输入" + msg + "</font>", "text");
                     return false;
                 }
             });
