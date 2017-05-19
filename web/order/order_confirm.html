@@ -20,6 +20,7 @@
     <input type="hidden" id="contactPeople">
     <input type="hidden" id="deliveryAddress">
     <input type="hidden" id="deliveryWay" value="DW02">
+    <input type="hidden" id="deliveryFee" value="0">
     <input type="hidden" id="invoiceWay" value="IW01">
     <ul class="confirm-list">
 
@@ -36,7 +37,7 @@
             <div class="ui-col ui-row-flex ui-flex-align-center">配送方式</div>
             <div class="ui-col rg">
                 <p class="deliveryWay">送货上门</p>
-                <!--<p class="color">￥20.00</p>-->
+                <p class="color fee"></p>
             </div>
         </li>
     </ul>
@@ -113,7 +114,7 @@
 </div>
 
 <div class="include header" data-src="../module/header.html"></div>
-<div class="include header" data-src="../module/order.template.html"></div>
+<div class="include" data-src="../module/order.template.html"></div>
 
 <script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
 <script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
