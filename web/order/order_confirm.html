@@ -56,32 +56,33 @@
                 <!--<a class="ui-img-cover on"></a>-->
             </div>
         </li>
+
         <li class="list-line">
-            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">公司名称</div>
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center taitou">公司名称</div>
             <div class="ui-col order-mess-input">
                 <input type="text" placeholder="请输入" id="companyName" class="required"/>
             </div>
         </li>
-        <li class="list-line">
+        <li class="list-line zhuanpiao">
             <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">税务登记号</div>
             <div class="ui-col order-mess-input">
                 <input type="text" placeholder="请输入" id="companyTfn" class="required"/>
             </div>
         </li>
-        <li class="list-line">
+        <li class="list-line zhuanpiao">
             <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行</div>
             <div class="ui-col order-mess-input">
                 <input type="text" placeholder="请输入" id="bankName"/>
             </div>
         </li>
-        <li class="list-line">
+        <li class="list-line zhuanpiao">
             <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">开户行账号</div>
             <div class="ui-col order-mess-input">
                 <input type="tel" placeholder="请输入" id="bankNumber"/>
             </div>
         </li>
         <li class="list-line">
-            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">发票用途</div>
+            <div class="ui-col order-mess-icon ui-row-flex ui-flex-align-center">发票项目</div>
             <div class="ui-col order-mess-input">
                 <input type="text" placeholder="请输入" id="invoiceUse"/>
             </div>
@@ -106,6 +107,21 @@
             </div>
             <div class="modal-content">
                 <div class="weui-cells weui-cells_radio" id="dw">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="invoiceWayPopup" class="weui-popup__container popup-bottom" style="background: rgba(0,0,0,.6);">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal" style="height: 300px;background:#ffffff;">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="javascript:;" class="picker-button close-popup" style="color: #e64340;">关闭</a>
+                    <h1 class="title">发票类型</h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="weui-cells weui-cells_radio" id="iw">
                 </div>
             </div>
         </div>

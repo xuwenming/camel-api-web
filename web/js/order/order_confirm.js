@@ -14,13 +14,14 @@ var CAMEL_ORDER_CONFIRM = {
         this._bindEvent();
         this._getItemList();
         this._initDeliveryWay();
+        this._initInvoiceWay();
         this._initAddress();
     },
     _bindEvent : function() {
         $('#switchInvoice').click(function(){
             if($(this).is(':checked')) {
                 $('.order-mess li:not(:first)').addClass('ui-row-flex').show();
-                $('#invoiceWay').val('IW02');
+                $('#invoiceWayPopup').popup();
             } else {
                 $('.order-mess li:not(:first)').removeClass('ui-row-flex').hide();
                 $('#invoiceWay').val('IW01');
@@ -167,6 +168,31 @@ var CAMEL_ORDER_CONFIRM = {
             }
         });
     },
+    _initInvoiceWay : function() {
+        setTimeout(function(){
+            var result = [{"id":"IW02","name":"普票"},{"id":"IW03","name":"专票"}];
+            for (var i in result) {
+                var invoiceWay = result[i];
+                console.log(invoiceWay);
+                var viewData = Util.cloneJson(invoiceWay);
+                var dom = Util.cloneDom("iw_template", invoiceWay, viewData);
+                console.log($('#iw_template').html());
+                $("#iw").append(dom);
+                dom.click(invoiceWay, function(event){
+                    $('#invoiceWay').val(event.data.id);
+                    if(event.data.id == 'IW02'){
+                        $('.zhuanpiao').removeClass('ui-row-flex').hide();
+                        $('.taitou').text('发票抬头');
+                    }else{
+                        $('.zhuanpiao').addClass('ui-row-flex').show();
+                        $('.taitou').text('公司名称');
+                    }
+                    $.closePopup();
+                });
+                //if(invoiceWay.id == 'IW02') dom.click();
+            }
+        },100);
+    },
     _buildDeliveryWay : function(deliveryWay) {
         var viewData = Util.cloneJson(deliveryWay);
         var dom = Util.cloneDom("dw_template", deliveryWay, viewData);
@@ -215,10 +241,10 @@ var CAMEL_ORDER_CONFIRM = {
         };
 
         // 发票信息
-        if($('#invoiceWay').val() == 'IW02') {
+        if($('#invoiceWay').val() != 'IW01') {
             var flag = true;
             $('.order-mess input.required').each(function(){
-                if(Util.checkEmpty($(this).val())) {
+                if(!$(this).is(":hidden")&&Util.checkEmpty($(this).val())) {
                     flag = false;
                     var msg = $(this).parent().prev().text();
                     $.toast("请输入" + msg, "text");
