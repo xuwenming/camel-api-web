@@ -40,8 +40,12 @@ function init() {
             $('.deliveryWay').html(order.deliveryWayName);
             $('.userRemark').html(order.userRemark);
 
-            if(order.invoiceWay == 'IW02') {
+            if(order.invoiceWay != 'IW01') {
                 $('.order-mess li:not(:first)').addClass('ui-row-flex').show();
+                if(order.invoiceWay != 'IW02'){
+                    $('.zhuanpiao').removeClass('ui-row-flex').hide();
+                    $('.taitou').text('发票抬头');
+                }
                 var invoice = order.mbOrderInvoice;
                 if(invoice) {
                     $('#companyName').html(invoice.companyName);
