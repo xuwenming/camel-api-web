@@ -210,7 +210,7 @@
 	height: 60px;
 	background-color: #fff;
 	width: 100%;
-	box-shadow: 0 0 10px #ddd;
+	box-shadow: 0 0 10px #ccc;
 	z-index: 999;
 }
 
@@ -222,7 +222,8 @@
 	text-align: center;
 }
 
-.bottom i{
+.bottom span{
+	position: relative;
 	display: block;
 	width: 24px;
 	height: 24px;
@@ -232,39 +233,58 @@
 	margin: auto;
 }
 
-.bottom i.icon-index{
+.bottom span.icon-index{
 	background-image: url(../images/index.png);
 }
 
-.bottom i.icon-carts{
+.bottom span.icon-carts{
 	background-image: url(../images/carts.png);
 }
 
-.bottom i.icon-order{
+.bottom span.icon-order{
 	background-image: url(../images/order.png);
 }
 
-.bottom i.icon-mine{
+.bottom span.icon-mine{
 	background-image: url(../images/mine.png);
+}
+
+.bottom span i{
+	display: block;
+	position: absolute;
+	right: -6px;
+	top: -3px;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	background-color: #FE9900;
+	color: #fff;
+	border-radius: 50%;
+	font-style: normal;
+}
+
+.bottom span i b{
+	font-size:10px;
 }
 
 .bottom .ui-col.active p{
 	color: #05C0AB;
 }
 
-.bottom .ui-col.ui-index.active i{
+.bottom .ui-col.ui-index.active span{
 	background-image: url(../images/index_active.png);
 }
 
-.bottom .ui-col.ui-carts.active i{
+.bottom .ui-col.ui-carts.active span{
 	background-image: url(../images/carts_active.png);
 }
 
-.bottom .ui-col.ui-order.active i{
+.bottom .ui-col.ui-order.active span{
 	background-image: url(../images/order_active.png);
 }
 
-.bottom .ui-col.ui-mine.active i{
+.bottom .ui-col.ui-mine.active span{
 	background-image: url(../images/mine_active.png);
 }
 

@@ -37,47 +37,84 @@
 	margin-top: 10px;
 }
 
-.ui-mine-list li{
+.ui-mine-list-item{
 	position: relative;
 	height: 48px;
 	padding: 0 4px 0px 12px;
 }
 
-.ui-mine-list li:active{
+.ui-mine-list-item:active{
 	background-color: #efefef;
 }
 
-.ui-mine-list li .ui-icon{
+.ui-mine-list-item .ui-icon{
 	max-width: 24px;
 	min-width: 24px;
 }
 
-.ui-mine-list li .ui-text{
+.ui-mine-list-item .ui-text{
 	color: #333;
 	padding-left: 10px;
+	max-width: 100px;
+	min-width: 100px;
 }
 
-.ui-mine-list li .ui-value{
+.ui-mine-list-item .ui-value{
 	color: #999;
 	padding-right: 5px;
 }
 
-.ui-mine-list li .ui-value p{
+.ui-mine-list-item .ui-value p{
 	text-align: right;
 }
 
-.ui-mine-list li .ui-value p.pd{
+.ui-mine-list-item .ui-value p.pd{
 	padding-top: 3px;
 }
 
-.ui-mine-list li .ui-rg{
+.ui-mine-list-item .ui-rg{
 	max-width: 20px;
 	min-width: 20px;
 }
 
-.ui-mine-list li .ui-rg i{
+.ui-mine-list-item .ui-rg i{
 	width: 16px;
 	height: 16px;
 	display: block;
 	background-image: url(../images/rg.png);
+}
+
+.ui-mine-list-pd{
+	position: relative;
+	padding: 12px 4px 12px 12px;
+}
+
+.ui-mine-list-pd .ui-icon{
+	max-width: 24px;
+	min-width: 24px;
+}
+
+.ui-mine-list-pd .ui-rg{
+	max-width: 20px;
+	min-width: 20px;
+}
+
+.ui-mine-list-pd .ui-rg i{
+	width: 16px;
+	height: 16px;
+	display: block;
+	background-image: url(../images/rg.png);
+}
+
+.ui-mine-list-pd .ui-text{
+	color: #333;
+	padding-left: 10px;
+	max-width: 100px;
+	min-width: 100px;
+}
+
+.ui-mine-list-pd .ui-value p{
+	color: #999;
+	line-height: 20px;
+	text-align: right;
 }

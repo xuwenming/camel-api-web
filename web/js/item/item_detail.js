@@ -32,7 +32,13 @@ function init() {
             if(item.imageList) {
                 var images = item.imageList.split(';');
                 for(var i in images) {
-                    $(".details-banner .swiper-wrapper").append('<div class="swiper-slide"><img src="'+images[i]+'" /></div>');
+                	
+                	var itemImage = '';
+                	itemImage += '<div class="swiper-slide banner-item">';
+                	itemImage += '<i style="background-image: url('+images[i]+');"></i>';
+                	itemImage += '</div>';
+                	
+                    $(".details-banner .swiper-wrapper").append(itemImage);
                 }
                 setTimeout(function(){
                     $(".details-banner").swiper({
@@ -49,7 +55,6 @@ function init() {
             } else {
                 $('.price').html('￥' + Util.fenToYuan(item.marketPrice));
             }
-
         }
 
         $.hideLoadMore();

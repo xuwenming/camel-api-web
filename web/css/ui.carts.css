@@ -144,6 +144,17 @@ body{
 	border-right: 1px solid #ddd;
 }
 
+.ui-carts-list li .ui-btn .num .ui-col:focus{
+	outline: none;
+}
+
+.ui-carts-list li .ui-btn .num .ui-col input{
+	height: 28px;
+	border: 0;
+	width: 100%;
+	text-align: center;
+}
+
 .ui-carts-list li .ui-btn .num .ui-col:active{
 	background-color: #ccc;
 }
