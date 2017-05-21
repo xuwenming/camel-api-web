@@ -92,7 +92,7 @@ var CAMEL_ORDER = {
         var dom = Util.cloneDom("order_list_template", order, viewData);
         $('.order-list').append(dom);
 
-        dom.children(':not(.ui-order-list-bottm)').click(order.id, function(event){
+        dom.children('.order-item-list').click(order.id, function(event){
             window.location.href = '../order/order_detail.html?orderId=' + event.data + '&tabIndex=' + tabIndex;
         });
 
