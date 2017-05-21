@@ -30,6 +30,7 @@ function getBalance() {
     ajaxPostSync('api/apiBalanceController/getBalance', {}, function(data){
         if(data.success) {
             balanceAmount = data.obj.amount;
+            $('.balanceAmount').html(Util.fenToYuan(balanceAmount));
         }
     });
 }
