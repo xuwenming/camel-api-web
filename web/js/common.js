@@ -369,3 +369,22 @@ function getDevice() {
         return 'none';
     }
 }
+
+/**
+ * 获取购物车数量
+ */
+function initShoppingNum() {
+    setTimeout(function(){
+        ajaxPost('api/apiShoppingController/count', {}, function(data){
+            if(data.success) {
+                if(data.obj && data.obj != 0) {
+                    $('.bottom .numCount').show().find('b').text(data.obj);
+                } else {
+                    $('.bottom .numCount').hide();
+                }
+            }
+        });
+    }, 200);
+}
+
+

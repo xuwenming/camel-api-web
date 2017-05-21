@@ -250,7 +250,7 @@
 }
 
 .bottom span i{
-	display: block;
+	display: none;
 	position: absolute;
 	right: -6px;
 	top: -3px;

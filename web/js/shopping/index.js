@@ -122,6 +122,9 @@ var CAMEL_SHOPPING = {
                         if($("#shoppingList li").length == 0) {
                             $("#shoppingList").append(Util.noDate(2, '购物车是空的'));
                             $('.clearing').hide();
+                            $('.bottom .numCount').hide();
+                        } else {
+                            $('.bottom .numCount').show().find('b').text($("#shoppingList li").length);
                         }
                     }
                 });

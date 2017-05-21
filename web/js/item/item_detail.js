@@ -11,6 +11,7 @@ $(function(){
         ajaxPost('api/apiShoppingController/add', {itemId : itemId, quantity : 1}, function(data){
             if(data.success) {
                 $.toast("加入购物车成功", 1000);
+                //initShoppingNum();
             }
         });
     });
@@ -32,18 +33,23 @@ function init() {
             if(item.imageList) {
                 var images = item.imageList.split(';');
                 for(var i in images) {
-                	
                 	var itemImage = '';
                 	itemImage += '<div class="swiper-slide banner-item">';
                 	itemImage += '<i style="background-image: url('+images[i]+');"></i>';
                 	itemImage += '</div>';
-                	
                     $(".details-banner .swiper-wrapper").append(itemImage);
                 }
                 setTimeout(function(){
                     $(".details-banner").swiper({
                         pagination: '.swiper-pagination',
                         paginationClickable: true
+                    });
+
+                    var pb = $.photoBrowser({
+                        items: images
+                    });
+                    $('.banner-item').click(function(){
+                        pb.open($(this).index());
                     });
                 }, 200);
             }
