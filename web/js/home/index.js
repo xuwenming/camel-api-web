@@ -110,13 +110,19 @@ var CAMEL_HOME = {
         });
     },
     _getItemCategory : function() {
-        ajaxPost('api/apiItemCategoryController/dataGrid', {page:1, rows:4, sort:'seq', order:'asc'}, function(data){
+        ajaxPost('api/apiItemCategoryController/dataGrid', {page:1, rows:50, sort:'seq', order:'asc'}, function(data){
             if(data.success) {
                 var result = data.obj;
                 for(var i in result.rows) {
                     var itemCategory = result.rows[i];
                     CAMEL_HOME._buildItemCategory(itemCategory);
                 }
+                setTimeout(function(){
+                    $("#itemCategory").swiper({
+                        slidesPerView: 4,
+                        autoplay:3000
+                    });
+                }, 50);
             }
         });
     },
@@ -156,7 +162,7 @@ var CAMEL_HOME = {
     _buildItemCategory : function(itemCategory) {
         var viewData = Util.cloneJson(itemCategory);
         var dom = Util.cloneDom("itemCategory_template", itemCategory, viewData);
-        $("#itemCategory").append(dom);
+        $("#itemCategory .swiper-wrapper").append(dom);
         dom.click(itemCategory.id, function(event){
             currPage = 1;
             CAMEL_HOME._getItemList({categoryId:event.data});

@@ -51,7 +51,7 @@ function init() {
                     $('.banner-item').click(function(){
                         pb.open($(this).index());
                     });
-                }, 200);
+                }, 100);
             }
             $('#name').html(item.name);
             $('#quantityUnitName').html(item.quantityUnitName);
