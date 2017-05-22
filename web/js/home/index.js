@@ -119,8 +119,7 @@ var CAMEL_HOME = {
                 }
                 setTimeout(function(){
                     $("#itemCategory").swiper({
-                        slidesPerView: 4,
-                        autoplay:3000
+                        slidesPerView: 4
                     });
                 }, 50);
             }
