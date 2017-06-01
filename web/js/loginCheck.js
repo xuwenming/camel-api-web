@@ -32,6 +32,11 @@ $(function(){
             return;
         }
         ajaxPost('api/apiUserController/getInfo', {}, function(data){
+            if(!data.success) {
+                $.cookie('camel_tokenId', null);
+                window.location.href = server_url + "api/apiUserController/loginByWx";
+                return;
+            }
             if(data.success && data.obj && !data.obj.phone) {
                 window.location.replace('../ucenter/bindPhone.html');
             } else {
