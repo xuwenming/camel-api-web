@@ -19,11 +19,17 @@ body{
 	outline: none;
 }
 
-.list li textarea{
+.list li input{
 	border: 0;
 	width: 100%;
 	padding: 15px 12px;
-	resize: none;
+	font-size: 14px;
+}
+
+.list li span{
+	padding: 15px 12px;
+	display: block;
+	color: #999;
 }
 
 .list .icon{
