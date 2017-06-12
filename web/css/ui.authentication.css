@@ -12,8 +12,18 @@ body{
 
 .list li{
 	position: relative;
-	padding: 15px 12px;
 	color: #333;
+}
+
+.list li:focus{
+	outline: none;
+}
+
+.list li textarea{
+	border: 0;
+	width: 100%;
+	padding: 15px 12px;
+	resize: none;
 }
 
 .list .icon{
