@@ -3,6 +3,7 @@
  */
 var orderId = GetRequest('orderId');
 var amount = GetRequest('amount');
+var bankCode = GetRequest('bankCode');
 $(function () {
     $.hideLoadMore();
 
@@ -37,7 +38,7 @@ function transfer() {
     }
 
     if(orderId)
-        ajaxPost('api/pay/remitPay', {amount:amount*100,orderId:orderId,payWay:'PW03',orderType:'OT01',remitter:remitter,remark:remark,remitterTime:$('#remitterTime').val()}, function(data){
+        ajaxPost('api/pay/remitPay', {amount:amount*100,orderId:orderId,payWay:'PW03',orderType:'OT01',remitter:remitter,remark:remark,remitterTime:$('#remitterTime').val(),bankCode:bankCode}, function(data){
             $.loading.close();
             if(data.success) {
                 $.alert('提交成功！请耐心等待审核','系统提示', function(){
@@ -52,7 +53,7 @@ function transfer() {
             $.loading.load({type:2, msg:'提交中...'});
         }, -1);
     else
-        ajaxPost('api/apiBalanceController/balanceRemit', {amount:amount*100,remitter:remitter,remitterTimeStr:$('#remitterTime').val(),content:remark}, function(data){
+        ajaxPost('api/apiBalanceController/balanceRemit', {amount:amount*100,remitter:remitter,remitterTimeStr:$('#remitterTime').val(),content:remark,bankCode:bankCode}, function(data){
             $.loading.close();
             if(data.success) {
                 $.alert('提交成功！请耐心等待审核','系统提示', function(){

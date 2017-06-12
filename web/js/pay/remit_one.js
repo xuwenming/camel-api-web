@@ -8,9 +8,18 @@ $(function () {
     init();
 
     $('.next-btn').click(function(){
-        var url = '../pay/remit_two.html?amount=' + amount;
+        if($('.ui-img-cover.active').length == 0) {
+            $.toast("<font size='3pt;'>请选择汇款银行</font>", "text");
+            return;
+        }
+        var url = '../pay/remit_two.html?amount=' + amount + "&bankCode=" + $('.ui-img-cover.active').attr('data-id');
         if(orderId) url += '&orderId=' + orderId;
         window.location.href = url;
+    });
+
+    $('.remit-list').on('click', '.ui-img-cover', function(){
+        $('.ui-img-cover.active').removeClass('active');
+        $(this).addClass('active');
     });
 });
 
@@ -19,14 +28,13 @@ function init() {
         if(data.success) {
             var result = data.obj;
             for(var i in result) {
-                if(result[i].id == 'TB01') {
-                    $('.bank_card_no').html(result[i].name);
-                } else if(result[i].id == 'TB02') {
-                    $('.user_name').html(result[i].name);
-                } else if(result[i].id == 'TB03') {
-                    $('.bank_icon').attr('src', result[i].icon);
-                    $('.bank_name').html(result[i].name);
-                }
+                $.extend(result[i], eval('(' + result[i].description + ')'));
+                if(result[i].isdeleted == 1) continue;
+
+                var viewData = Util.cloneJson(result[i]);
+                var dom = Util.cloneDom("remit_template", result[i], viewData);
+                dom.find('.ui-img-cover').attr('data-id', result[i].id);
+                $(".remit-list").append(dom);
             }
         }
     });

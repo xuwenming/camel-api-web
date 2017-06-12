@@ -61,6 +61,15 @@ function init() {
             } else {
                 $('.price').html('￥' + Util.fenToYuan(item.marketPrice));
             }
+
+            if(item.introduceList) {
+                var introduces = item.introduceList.split(';');
+                for(var i in introduces) {
+                    $('.details-info-list').append('<img src="'+introduces[i]+'"/>');
+                }
+            } else {
+                $('.details-info-list').html('无');
+            }
         }
 
         $.hideLoadMore();

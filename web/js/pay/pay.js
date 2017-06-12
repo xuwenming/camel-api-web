@@ -31,6 +31,9 @@ function getBalance() {
         if(data.success) {
             balanceAmount = data.obj.amount;
             $('.balanceAmount').html(Util.fenToYuan(balanceAmount));
+        } else {
+            balanceAmount = data.obj;
+            $('.balanceAmount').html(Util.fenToYuan(0));
         }
     });
 }
@@ -67,6 +70,19 @@ function pay() {
             $.alert("请在手机微信内打开进行支付！", "系统提示！");
         }
     } else if(payWay == 'ye') {
+        if(balanceAmount == -1) {
+            $.modal({
+                title: "系统提示！",
+                text: "门店未认证",
+                buttons: [
+                    { text: "取消", className: "default" },
+                    { text: "去认证", onClick: function(){
+                        window.location.href = '../ucenter/authentication.html';
+                    } }
+                ]
+            });
+            return;
+        }
         if(balanceAmount < amount) { // 余额不足
             $.modal({
                 title: "余额不足！",

@@ -157,8 +157,7 @@ var CAMEL_ORDER_CONFIRM = {
 
         var deliveryFee = parseInt($('#deliveryFee').val());
         totalPrice = eval(totalPrice) || 0;
-        // TODO 暂时不计算运费
-        //totalPrice = totalPrice + deliveryFee;
+        totalPrice = totalPrice + deliveryFee;
         $('.totalPrice').html('￥' + Util.fenToYuan(totalPrice));
         $('#totalPrice').val(totalPrice);
     },
@@ -199,9 +198,10 @@ var CAMEL_ORDER_CONFIRM = {
         },100);
     },
     _buildDeliveryWay : function(deliveryWay) {
+        console.log(deliveryWay);
         var viewData = Util.cloneJson(deliveryWay);
-        //if(deliveryWay.description)
-        //    viewData.name = deliveryWay.name + " - " + '￥' + Util.fenToYuan(parseInt(deliveryWay.description)*100);
+        if(deliveryWay.description)
+            viewData.name = deliveryWay.name + " - " + '￥' + Util.fenToYuan(deliveryWay.description*100);
         var dom = Util.cloneDom("dw_template", deliveryWay, viewData);
         $("#dw").append(dom);
 
@@ -209,9 +209,9 @@ var CAMEL_ORDER_CONFIRM = {
             $('.deliveryWay').html(event.data.name);
             $('#deliveryWay').val(event.data.id);
             if(event.data.id == 'DW02' && event.data.description) {
-                var deliveryFee = parseInt(deliveryWay.description)*100;
+                var deliveryFee = deliveryWay.description*100;
                 $('#deliveryFee').val(deliveryFee);
-                //$('.fee').html('￥' + Util.fenToYuan(deliveryFee));
+                $('.fee').html('￥' + Util.fenToYuan(deliveryFee));
             } else {
                 $('#deliveryFee').val(0);
                 $('.fee').empty();
@@ -248,6 +248,7 @@ var CAMEL_ORDER_CONFIRM = {
         }
         var orderParam = {
             totalPrice : $('#totalPrice').val(),
+            deliveryPrice : $('#deliveryFee').val(),
             deliveryWay : $('#deliveryWay').val(),
             contactPhone : contactPhone,
             contactPeople : contactPeople,
