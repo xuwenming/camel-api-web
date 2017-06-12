@@ -5,33 +5,35 @@ $(function () {
     $.hideLoadMore();
     init();
 
-    $('.receiptAddress').click(function() {
-        try {
-            JWEIXIN.openAddress(function (data) {
-                var params = {};
-                params.userName = data.userName;
-                params.postalCode = data.postalCode;
-                params.provinceName = data.provinceName;
-                params.cityName = data.cityName;
-                params.countyName = data.countryName;
-                params.detailInfo = data.detailInfo.replace(/[\r\n]/g, "");
-                params.telNumber = data.telNumber;
+    setTimeout(function(){
+        $('.receiptAddress').click(function() {
+            try {
+                JWEIXIN.openAddress(function (data) {
+                    var params = {};
+                    params.userName = data.userName;
+                    params.postalCode = data.postalCode;
+                    params.provinceName = data.provinceName;
+                    params.cityName = data.cityName;
+                    params.countyName = data.countryName;
+                    params.detailInfo = data.detailInfo.replace(/[\r\n]/g, "");
+                    params.telNumber = data.telNumber;
 
-                $('.userInfo').html(data.userName + " " + data.telNumber);
-                $('.address').html(data.provinceName + data.cityName + data.countryName + data.detailInfo);
-                ajaxPost('api/apiUserAddressController/add', params, function(data){
-                    if(data.success) {
-                        // 不做任何操作
-                    }
+                    $('.userInfo').html(data.userName + " " + data.telNumber);
+                    $('.address').html(data.provinceName + data.cityName + data.countryName + data.detailInfo);
+                    ajaxPost('api/apiUserAddressController/add', params, function(data){
+                        if(data.success) {
+                            // 不做任何操作
+                        }
+                    });
+
+                    //alert(data.userName + " " + data.postalCode + " " + data.provinceName + " " + data.cityName
+                    //+ " " + data.countryName + " " + data.detailInfo + " " + data.nationalCode + " " + data.telNumber)
                 });
-
-                //alert(data.userName + " " + data.postalCode + " " + data.provinceName + " " + data.cityName
-                //+ " " + data.countryName + " " + data.detailInfo + " " + data.nationalCode + " " + data.telNumber)
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    });
+            } catch (e) {
+                console.log(e);
+            }
+        });
+    }, 20);
 
     $('.shopAuth').click(function(){
         window.location.href = '../ucenter/authentication.html';

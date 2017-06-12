@@ -5,19 +5,21 @@ $(function () {
     $.hideLoadMore();
     init();
 
-    $('#shopAddress').click(function() {
-        try {
-            JWEIXIN.openAddress(function (data) {
-                $('#shopAddress').html(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
-                if($('#contactPeople').val() == '') {
-                    $('#contactPeople').val(data.userName);
-                }
-                $('#regionId').val('');
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    });
+    setTimeout(function(){
+        $('#shopAddress').click(function() {
+            try {
+                JWEIXIN.openAddress(function (data) {
+                    $('#shopAddress').html(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
+                    if($('#contactPeople').val() == '') {
+                        $('#contactPeople').val(data.userName);
+                    }
+                    $('#regionId').val('');
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        });
+    }, 20);
 
     $('#submitShop').bind('click', submitShop);
 });
