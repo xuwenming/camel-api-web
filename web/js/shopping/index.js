@@ -88,7 +88,6 @@ var CAMEL_SHOPPING = {
                 num = event.data.mbItem.quantity;
             }
 
-            $.showLoading('正在加载');
             ajaxPost('api/apiShoppingController/edit', {id:event.data.id, quantity:num}, function(data){
                 if(data.success) {
                     $li.find('.quantity').attr('data-quantity',num);
@@ -98,9 +97,6 @@ var CAMEL_SHOPPING = {
                         $li.find('.ui-select').click();
                     }
                 }
-                setTimeout(function(){
-                    $.hideLoading();
-                }, 200);
             });
         });
         dom.find('.sub').click(shopping.id, function(event){
