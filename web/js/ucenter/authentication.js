@@ -8,7 +8,7 @@ $(function () {
         $('#shopAddress').click(function() {
             try {
                 JWEIXIN.openAddress(function (data) {
-                    $('#shopAddress').val(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
+                    $('#shopAddress span').css('color', 'inherit').html(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
                     if($('#contactPeople').val() == '') {
                         $('#contactPeople').val(data.userName);
                     }
@@ -30,14 +30,17 @@ function init() {
             if(shop.auditStatus == 'AS01') {
                 $('#submitShop').addClass('gray').html('认证中...');
             } else if(shop.auditStatus == 'AS02') {
-                $('#submitShop').addClass('gray').html('认证成功');
-                $('.icon').show().find('img').attr('src', '../images/auth_success.png')
+                $('#submitShop').remove();
+                $('.icon').show().find('img').attr('src', '../images/auth_success.png');
             } else {
                 $('#shopId').val(shop.id);
-                $('.icon').show().find('img').attr('src', '../images/auth_failed.png')
+                $('.icon').show().find('img').attr('src', '../images/auth_failed.png');
             }
             $('#shopName').val(shop.name);
-            $('#shopAddress').val(shop.regionPath || "" + shop.address);
+            if(shop.address) {
+                $('#shopAddress span').css('color', 'inherit').html(shop.regionPath || "" + shop.address);
+            }
+
             $('#contactPeople').val(shop.contactPeople);
             $('#regionId').val(shop.regionId);
         }
@@ -52,8 +55,8 @@ function submitShop() {
         $.toptip('请输入门店名称', 'error');
         return;
     }
-    var shopAddress = $('#shopAddress').val();
-    if(Util.checkEmpty(shopAddress)) {
+    var shopAddress = $('#shopAddress span').html();
+    if(shopAddress == '请选择门店地址') {
         $.toptip('请选择门店地址', 'error');
         return;
     }

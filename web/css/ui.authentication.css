@@ -29,7 +29,7 @@ body{
 .list li span{
 	padding: 15px 12px;
 	display: block;
-	color: #999;
+	color: #757575;
 }
 
 .list .icon{
@@ -42,6 +42,15 @@ body{
 .list .icon img{
 	display: block;
 	width: 100%;
+}
+
+.btn-reg {
+	margin: 30px 20px 0px 20px;
+	height: 50px;
+	background-color: #05C0AB;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 4px;
 }
 
 .gray {
