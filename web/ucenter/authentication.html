@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>门店认证</title>
+</head>
+<body style="display: none;">
+
+<!--头部导航 开始-->
+<div class="header ui-row-flex">
+	<div class="ui-col ui-row-flex header-icon ui-flex-align-center" onclick="history.go(-1)">
+		<i class="ui-img-cover"></i>
+	</div>
+	<div class="ui-col ui-row-flex ui-flex-align-center ui-flex-pack-center header-name">认证信息</div>
+	<div class="ui-col header-icon"></div>
+</div>
+<!--头部导航 结束-->
+
+<!--主体部分 开始-->
+
+<ul class="list line">
+	<input type="hidden" id="shopId"/>
+	<input type="hidden" id="regionId"/>
+	<li class="list-line-bl"><input type="text" placeholder="请输入门店名称" id="shopName" style="width: 100%;"/></li>
+	<li class="list-line-bl"><input type="text" placeholder="请选择门店地址" readonly id="shopAddress" style="width: 100%;"/></li>
+	<li class="list-line-bl"><input type="text" placeholder="请输入联系人" id="contactPeople" style="width: 100%;"/></li>
+
+	<div class="icon" style="display: none;">
+		<img src="../images/auth_failed.png" />
+	</div>
+</ul>
+<a class="btn-reg ui-row-flex ui-flex-align-center ui-flex-pack-center ripple" id="submitShop">提交认证</a>
+<!--主体部分 结束-->
+
+<div class="include header" data-src="../module/header.html"></div>
+<script type="text/javascript" src="../js/jquery-2.1.4.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/boot.js" charset="utf-8"></script>
+<!--我的页面业务代码-->
+<script type="text/javascript">
+	$.include(['css/ui.register.css','css/ui.authentication.css', 'js/ucenter/authentication.js']);
+</script>
+</body>
+</html>

@@ -61,7 +61,7 @@ function bindPhone() {
         if (data.success) {
            window.location.replace('../home/index.html');
         } else {
-            alert(data.msg);
+            $.toptip(data.msg, 'error');
         }
     }, function(){
         $.loading.load({type:2, msg:'绑定中...'});

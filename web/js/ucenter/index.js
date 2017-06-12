@@ -32,6 +32,10 @@ $(function () {
             console.log(e);
         }
     });
+
+    $('.shopAuth').click(function(){
+        window.location.href = '../ucenter/authentication.html';
+    });
 });
 
 function init() {
@@ -45,6 +49,7 @@ function init() {
             if(user.mbShop) {
                 $('.shopName').html(user.mbShop.name);
                 $('.shopAddress').html(user.mbShop.regionPath + user.mbShop.address);
+                $('.contact').html(user.mbShop.contactPeople);
             }
             if(user.mbUserAddress) {
                 $('.userInfo').html(user.mbUserAddress.userName + " " + user.mbUserAddress.telNumber);

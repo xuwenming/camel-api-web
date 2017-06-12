@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+body{
+	padding-top: 50px;
+}
+
+.list{
+	position: relative;
+	margin-top: 10px;
+	background-color: #fff;
+}
+
+.list li{
+	position: relative;
+	padding: 15px 12px;
+	color: #333;
+}
+
+.list .icon{
+	position: absolute;
+	right: 12px;
+	top: 10px;
+	width: 100px;
+}
+
+.list .icon img{
+	display: block;
+	width: 100%;
+}
+
+.gray {
+	background-color: #aaa;
+}
