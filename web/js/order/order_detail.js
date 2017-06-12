@@ -38,6 +38,9 @@ function init() {
             $('#address .info').append('<p>'+order.deliveryAddress+'</p>');
 
             $('.deliveryWay').html(order.deliveryWayName);
+            if(order.deliveryPrice > 0) {
+                $('.fee').html('￥' + Util.fenToYuan(order.deliveryPrice));
+            }
             $('.userRemark').html(order.userRemark);
 
             if(order.invoiceWay != 'IW01') {
