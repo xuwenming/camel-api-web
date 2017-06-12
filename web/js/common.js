@@ -1,5 +1,5 @@
 var server_url = 'http://www.mobiang.com/camel/'; // 服务器api接口地址
-//var server_url = 'http://192.168.1.106:8082/'; // 测试本地api接口地址
+//var server_url = 'http://192.168.1.101:8082/'; // 测试本地api接口地址
 
 function ajaxPost(url, parameter, success,beforeSend,time) {
     if(!url) return;
@@ -23,7 +23,9 @@ function ajaxPost(url, parameter, success,beforeSend,time) {
             else
                 params = 'tokenId=' + getTokenId() + getTokenId();
 
-            request.setRequestHeader("sign", md5(encodeURIComponent(params)));
+            params = encodeURIComponent(params).replace(/[!]/g, "%21").replace(/[']/g, "%27")
+                .replace(/[(]/g, "%28").replace(/[)]/g, "%29").replace(/[~]/g, "%7E");
+            request.setRequestHeader("sign", md5(params));
         },
         success:function (data) {
             if(success)
@@ -62,7 +64,9 @@ function ajaxPostSync(url, parameter, success,beforeSend,time) {
             else
                 params = 'tokenId=' + getTokenId() + getTokenId();
 
-            request.setRequestHeader("sign", md5(encodeURIComponent(params)));
+            params = encodeURIComponent(params).replace(/[!]/g, "%21").replace(/[']/g, "%27")
+                .replace(/[(]/g, "%28").replace(/[)]/g, "%29").replace(/[~]/g, "%7E");
+            request.setRequestHeader("sign", md5(params));
         },
         success:function (data) {
             if(success)

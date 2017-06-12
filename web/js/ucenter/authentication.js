@@ -2,14 +2,13 @@
  * Created by snow on 17/5/5.
  */
 $(function () {
-    $.hideLoadMore();
     init();
 
     setTimeout(function(){
         $('#shopAddress').click(function() {
             try {
                 JWEIXIN.openAddress(function (data) {
-                    $('#shopAddress').html(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
+                    $('#shopAddress').val(data.provinceName + data.cityName + data.countryName + data.detailInfo.replace(/[\r\n]/g, ""));
                     if($('#contactPeople').val() == '') {
                         $('#contactPeople').val(data.userName);
                     }
@@ -38,9 +37,11 @@ function init() {
                 $('.icon').show().find('img').attr('src', '../images/auth_failed.png')
             }
             $('#shopName').val(shop.name);
-            $('#shopAddress').val(shop.regionPath + shop.address);
+            $('#shopAddress').val(shop.regionPath || "" + shop.address);
             $('#contactPeople').val(shop.contactPeople);
+            $('#regionId').val(shop.regionId);
         }
+        $.hideLoadMore();
     });
 }
 

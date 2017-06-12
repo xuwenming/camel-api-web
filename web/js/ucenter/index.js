@@ -1,6 +1,7 @@
 /**
  * Created by snow on 17/5/3.
  */
+var shop = null;
 $(function () {
     $.hideLoadMore();
     init();
@@ -35,13 +36,34 @@ $(function () {
         });
     }, 20);
 
+    $('.toBalance').click(function(){
+        if(!shop || shop.auditStatus == 'AS03') {
+            $.modal({
+                title: "系统提示！",
+                text: "门店未认证或认证失败",
+                buttons: [
+                    { text: "取消", className: "default" },
+                    { text: "去认证", onClick: function(){
+                        window.location.href = '../ucenter/authentication.html';
+                    } }
+                ]
+            });
+        } else {
+            if(shop.auditStatus == 'AS01') {
+                $.alert("门店正在认证中", "系统提示");
+            } else {
+                window.location.href = '../balance/index.html'
+            }
+        }
+    });
+
     $('.shopAuth').click(function(){
         window.location.href = '../ucenter/authentication.html';
     });
 });
 
 function init() {
-    ajaxPost('api/apiUserController/get', {}, function(data){
+    ajaxPostSync('api/apiUserController/get', {}, function(data){
         if(data.success) {
             var user = data.obj;
             $('.headImage').css('background-image', 'url('+user.icon+')');
@@ -49,8 +71,9 @@ function init() {
             $('.balance').html('￥' + Util.fenToYuan(user.mbBalance));
             $('.phone').html(user.phone);
             if(user.mbShop) {
+                shop = user.mbShop;
                 $('.shopName').html(user.mbShop.name);
-                $('.shopAddress').html(user.mbShop.regionPath + user.mbShop.address);
+                $('.shopAddress').html(user.mbShop.regionPath || "" + user.mbShop.address);
                 $('.contact').html(user.mbShop.contactPeople);
             }
             if(user.mbUserAddress) {
