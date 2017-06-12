@@ -209,3 +209,10 @@ body{
 	border: 1px solid #FE9900;
 	color: #fff;
 }
+
+.ui-order-list .ui-btn .num .ui-col input {
+	height: 28px;
+	border: 0;
+	width: 100%;
+	text-align: center;
+}

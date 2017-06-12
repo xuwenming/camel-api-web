@@ -68,17 +68,48 @@ var CAMEL_SHOPPING = {
         dom.attr('data-id', shopping.id);
         dom.find('i.ui-img-cover').css('background-image', 'url('+shopping.mbItem.url+')');
         dom.addClass('ui-row-flex');
+        dom.find('.quantity').val(shopping.quantity).attr('data-quantity',shopping.quantity);
         if(!shopping.mbItem.contractPrice) {
             dom.find('.bot').html('<p><span name="contractPrice">'+viewData.marketPrice+'</span></p>');
         }
         $("#shoppingList").append(dom);
+
+        dom.find('.quantity').blur(shopping, function(event){
+            var $li = $(this).closest('li'), num = $(this).val(), oldNum = $(this).attr('data-quantity');
+            if(oldNum == num) return;
+            if(!num || num == 0) {
+                $.toast("<font size='3pt;'>数量超出范围~</font>", "text");
+                $(this).val(1);
+                num = 1;
+            }
+            if(num > event.data.mbItem.quantity) {
+                $.toast("<font size='3pt;'>数量超出范围~</font>", "text");
+                $(this).val(event.data.mbItem.quantity);
+                num = event.data.mbItem.quantity;
+            }
+
+            $.showLoading('正在加载');
+            ajaxPost('api/apiShoppingController/edit', {id:event.data.id, quantity:num}, function(data){
+                if(data.success) {
+                    $li.find('.quantity').attr('data-quantity',num);
+                    if($li.find('span.selected').length != 0) {
+                        CAMEL_SHOPPING._totalPrice();
+                    } else {
+                        $li.find('.ui-select').click();
+                    }
+                }
+                setTimeout(function(){
+                    $.hideLoading();
+                }, 200);
+            });
+        });
         dom.find('.sub').click(shopping.id, function(event){
-            var $li = $(this).closest('li'), num = parseInt($li.find('[name=quantity]').text());
+            var $li = $(this).closest('li'), num = parseInt($li.find('.quantity').val());
             if(num <= 1) return;
             $.showLoading('正在加载');
             ajaxPost('api/apiShoppingController/edit', {id:event.data, quantity:num-1}, function(data){
                 if(data.success) {
-                    $li.find('[name=quantity]').text(num - 1);
+                    $li.find('.quantity').val(num - 1).attr('data-quantity',num - 1);
                     if($li.find('span.selected').length != 0) {
                         CAMEL_SHOPPING._totalPrice();
                     } else {
@@ -91,15 +122,15 @@ var CAMEL_SHOPPING = {
             });
         });
         dom.find('.add').click(shopping, function(event){
-            var $li = $(this).closest('li'), num = parseInt($li.find('[name=quantity]').text());
-            if(num == shopping.mbItem.quantity) {
+            var $li = $(this).closest('li'), num = parseInt($li.find('.quantity').val());
+            if(num == event.data.mbItem.quantity) {
                 $.toast("<font size='3pt;'>亲，不能购买更多哦</font>", "text");
                 return;
             }
             $.showLoading('正在加载');
             ajaxPost('api/apiShoppingController/edit', {id:event.data.id, quantity:num+1}, function(data){
                 if(data.success) {
-                    $li.find('[name=quantity]').html(num + 1);
+                    $li.find('.quantity').val(num + 1).attr('data-quantity',num + 1);
                     if($li.find('span.selected').length != 0) {
                         CAMEL_SHOPPING._totalPrice();
                     } else {
@@ -154,7 +185,7 @@ var CAMEL_SHOPPING = {
     _totalPrice : function() {
         var totalPrice = $('.ui-select span.selected').map(function(){
             var $li = $(this).closest('li');
-            var num = $li.find('[name=quantity]').text();
+            var num = $li.find('.quantity').val();
             return $li.find('[name=contractPrice]').text().substr(1)*100*num;
         }).get().join('+');
         $('.totalPrice').html('￥' + Util.fenToYuan(eval(totalPrice)));

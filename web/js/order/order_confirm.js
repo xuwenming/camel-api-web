@@ -111,26 +111,39 @@ var CAMEL_ORDER_CONFIRM = {
         $(".confirm-list").append(dom);
 
         if(itemId) {
+            dom.find('.quantity').val(mbItem.quantity);
             $('.ui-num').removeClass('ui-row-flex').hide();
             $('.ui-btn').show();
+            dom.find('.quantity').blur(mbItem.quantitys, function(event){
+                var $li = $(this).closest('li'), num = $(this).val();
+                if(!num || num == 0) {
+                    $.toast("<font size='3pt;'>数量超出范围~</font>", "text");
+                    $(this).val(1);
+                }
+                if(num > event.data) {
+                    $.toast("<font size='3pt;'>数量超出范围~</font>", "text");
+                    $(this).val(event.data);
+                }
+                CAMEL_ORDER_CONFIRM._totalPrice();
+            });
             dom.find('.sub').click(function(){
-                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn div[name=quantity]').text());
+                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn .quantity').val());
                 if(num <= 1) return;
                 $.showLoading('正在加载');
-                $li.find('.ui-btn div[name=quantity]').text(num - 1);
+                $li.find('.ui-btn .quantity').val(num - 1);
                 CAMEL_ORDER_CONFIRM._totalPrice();
                 setTimeout(function(){
                     $.hideLoading();
                 }, 200);
             });
             dom.find('.add').click(mbItem.quantitys, function(event){
-                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn div[name=quantity]').text());
+                var $li = $(this).closest('li'), num = parseInt($li.find('.ui-btn .quantity').val());
                 if(num == event.data) {
                     $.toast("<font size='3pt;'>亲，不能购买更多哦</font>", "text");
                     return;
                 }
                 $.showLoading('正在加载');
-                $li.find('.ui-btn div[name=quantity]').html(num + 1);
+                $li.find('.ui-btn .quantity').val(num + 1);
                 CAMEL_ORDER_CONFIRM._totalPrice();
                 setTimeout(function(){
                     $.hideLoading();
@@ -148,7 +161,7 @@ var CAMEL_ORDER_CONFIRM = {
         var totalPrice = $('.confirm-list li').map(function(){
             var num;
             if(itemId) {
-                num = $(this).find('.ui-btn div[name=quantity]').text();
+                num = $(this).find('.ui-btn .quantity').val();
             } else if(shoppingIds) {
                 num = $(this).find('.ui-num span[name=quantity]').text();
             }
@@ -290,7 +303,7 @@ var CAMEL_ORDER_CONFIRM = {
             }
             var quantity;
             if(itemId) {
-                quantity = $(this).find('.ui-btn div[name=quantity]').text();
+                quantity = $(this).find('.ui-btn .quantity').val();
             } else if(shoppingIds) {
                 quantity = $(this).find('.ui-num span[name=quantity]').text();
             }
